@@ -27,10 +27,11 @@ Participants will be required to demonstrate their proficiency operating as vali
 * Publishing apps
 * Deploying apps
 
-After the testnet concludes, the participants will be ranked according to the tasks they completed.
-The full list of tasks and associated points, as well as related instructions can be found [here](./tasks.md).
-
 Testnet coordinators will provide updates to participants via Discord channels and monitor task completion status throughout the event.
+
+After the testnet concludes, the participants will be ranked according to the tasks they completed.
+
+### The list of tasks and associated points can be found [here](./tasks.md).
 
 ## Timeline
 
