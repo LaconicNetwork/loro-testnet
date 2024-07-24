@@ -1,7 +1,5 @@
 # 📋 LORO Testnet Tasks & Awards 🏅
 
-![A gif of a parrot doing a trick roll](/images/roll.webp)
-
 This page will be updated if there are any adjustments to the points allocated to each task or the tasks themselves.
 
 | ID | Task | Max Points |
