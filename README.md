@@ -8,8 +8,15 @@ This repo contains the event plan and information on the tasks that must be comp
 
 ### 1. Registration
 
-You must submit KYC and validator information through the onboarding app to register for this testnet.
-By the end of the onboarding process, you will have a laconic address that you must use with all tasks that involve on-chain operations.
+There are two apps you will use to register for the testnet.
+
+* The [wallet app](wallet.laconic.com) will:
+  * Generate all the required keys and addresses.
+  * Link your KYC UUID with a `laconic` address.
+  * Publish your KYC UUID and keys to the chain.
+* The [onboarding app](loro-signup.laconic.com) will:
+  * Register your validator on the testnet.
+  * Allow you to request funds from the faucet.
 
 ### 2. Node setup
 Instructions on how to set up a node will be published in this repo ahead of the testnet launch.
