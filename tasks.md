@@ -74,11 +74,7 @@ Publish apps.
 
 ### Reference apps
 
-* https://git.vdb.to/zramsay/birbit
-* https://github.com/snowball-tools/image-upload-pwa-example
-* https://github.com/snowball-tools/test-progressive-web-app
-* https://github.com/snowball-tools/snowball-pwa-static-template
-* https://github.com/snowball-tools/snowball-pwa-vitepwa-template
+* https://git.vdb.to/cerc-io/test-progressive-web-app
 
 ## Task 12
 Deploy your first app.
