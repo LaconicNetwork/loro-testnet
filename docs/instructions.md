@@ -75,6 +75,15 @@ Verify the authority has been registered.
 laconic-so deployment --dir laconic-console-deployment exec cli "laconic registry authority whois loro"
 ```
 
+## Register a name
+
+Set the name using a registered authority and an Application Record ID:
+```
+laconic-so deployment --dir laconic-console-deployment exec cli "laconic registry name set lrn://loro/applications/webapp bafyreibmqxncmt4fuwgtf5jzx2k6zkw2iwxaags7z6wgksuqbnusmrpk24"
+```
+* In this example, `loro` is an active authority and `bafyreibmqxncmt4fuwgtf5jzx2k6zkw2iwxaags7z6wgksuqbnusmrpk24` is the ID of an Application Record.
+
+
 ## Register an Application Record
 
 Anybody looking to publish an app must register an Application Record that Application Deployment Requests can reference.
@@ -90,11 +99,11 @@ laconic-so deployment --dir laconic-console-deployment exec cli "laconic registr
 }
 ```
 
-## Register an Application Deployment Request
+## Register an Application Deployment Request Record
 
 An Application Deployment Request must be registered to notify Service Providers that an app is waiting to be deployed.
 
-* Copy the application deployment request yaml file ([see this sample](/templates/application-deployment-request)) to `laconic-console-deployment/data/laconic-registry-data/application-deployment-request.yml`.
+* Copy the application deployment request yaml file ([see this sample](/templates/application-deployment-request.yml)) to `laconic-console-deployment/data/laconic-registry-data/application-deployment-request.yml`.
 * Register the Application Deployment Request.
 ```
 laconic-so deployment --dir laconic-console-deployment exec cli "laconic registry record publish --filename /laconic-registry-data/application-deployment-request.yml --bond-id <bond_id> --gas 250000"
@@ -143,4 +152,19 @@ laconic-so deployment --dir laconic-console-deployment exec cli "laconic registr
 Verify the record:
 ```
 laconic-so deployment --dir laconic-console-deployment exec cli "laconicd registry record get --id bafyreieow4oybr5spo6imwtegd24t26obqhlnq5tl2mw3cvpbdq4prst7e"
+```
+
+## Register an Application Deployment Removal Request
+
+An Application Deployment Removal Request can be registered to notify Service Providers that an app deployment should be stopped.
+
+* Copy the application deployment removal request yaml file ([see this sample](/templates/application-deployment-removal-request.yml)) to `laconic-console-deployment/data/laconic-registry-data/application-deployment-removal-request.yml`.
+* Register the Application Deployment Request.
+```
+laconic-so deployment --dir laconic-console-deployment exec cli "laconic registry record publish --filename /laconic-registry-data/application-deployment-removal-request.yml --bond-id <bond_id> --gas 250000"
+```
+```
+{
+  "id": "bafyreibwgtf5jzx2bnusmrpk24k6zkw2iwxaags7z6mqxncmt4fuwgksuq"
+}
 ```
