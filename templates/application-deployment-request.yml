@@ -1,0 +1,16 @@
+record:
+  type: ApplicationDeploymentRequest
+  version: 1.2.3
+  application: application
+  dns: dns
+  config:
+    env:
+      ENV_VAR_A: A
+      ENV_VAR_B: B
+  lrn:
+    - lrn://loro/applications/my-demo-app
+  meta:
+    foo: bar
+  tags:
+    - a
+    - b

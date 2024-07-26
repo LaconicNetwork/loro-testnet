@@ -1,0 +1,8 @@
+record:
+  type: DnsRecord
+  version: 0.0.1
+  name: "https://my-demo-deployment.app.xyz"
+  resource_type: "A"
+  value: "myapp"
+  meta:
+    foo: bar
