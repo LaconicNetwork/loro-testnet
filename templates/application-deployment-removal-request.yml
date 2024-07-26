@@ -1,0 +1,4 @@
+record:
+  type: ApplicationDeploymentRemovalRequest
+  deployment: bafyreieow4oybr5spo6imwtegd24t26obqhlnq5tl2mw3cvpbdq4prst7e
+  version: 1.0.0
