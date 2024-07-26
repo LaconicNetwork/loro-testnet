@@ -32,35 +32,35 @@ This page will be updated if there are any adjustments to the points allocated t
 
 
 ## Task 1
-Run a validator.
+Run a validator
 * All participants that run a validator node will be awarded 400 points.
 * Instructions on how to set up a node will be posted in this repo ahead of the testnet launch.
 
 
 ## Task 2
-Sign as many blocks as possible.
+Sign as many blocks as possible
 * You must run a validator node and keep downtime to a minimum.
 * Validators will be ranked by blocks signed: the top one will get 100 points, the second place will get 90, third place will get 80, and so on. 
 * Only the top 10 validators will be awarded points.
 
 
 ## Task 3
-Create a bond.
+Create a bond - [instructions](/docs/instructions.md#create-a-bond)
 * A bond will allow you to register records on chain.
 * You will be awarded 1 point for each of the first 10 bonds you create, for a maximum of 10 points.
 
 ## Task 4
-Register an authority.
+Register an authority - [instructions](/docs/instructions.md#register-an-authority)
 * An application deployment request requires a registered name to be processed.
 * You will be awarded 3 points for each of the first 10 authorities you register, for a maximum of 30 points.
 * Names that contain offensive or language that is deemed inappropriate by the testnet coordinators will not be counted.
 
 ## Tasks 5 - 8
-Register a record.
+Register a record - [instructions](/docs/instructions.md#register-an-application-record)
 * You will be awarded 2 points for each of the first 20 records you register, per record type, for a maximum of 40 points for each of these tasks.
 
 ## Tasks 9 - 11
-Publish apps.
+Publish apps
 * You must publish at least one app that falls under the following categories:
   * Reference app: Several ready-made apps are listed below.
   * Modified reference app: An app from the list that you have forked and made changes to.
@@ -77,7 +77,7 @@ Publish apps.
 * https://git.vdb.to/cerc-io/test-progressive-web-app
 
 ## Task 12
-Deploy your first app.
+Deploy your first app
 * This task will be considered complete when it meets the following criteria:
   * A DNS Record is registered.
   * An Application Deployment Record is registered.
@@ -85,7 +85,7 @@ Deploy your first app.
 * You will be awarded 600 points for the first app you deploy.
 
 ## Task 13
-Deploy apps.
+Deploy apps
 * You must deploy multiple apps and keep them online.
 * The following criteria must be met for each before each task is considered eligible for points:
   * A DNS Record is registered.
@@ -97,13 +97,13 @@ Deploy apps.
 * Testnet coordinators will verify deployments at least once a day. If the app is not reachable at that time, that day will not be counted towards the total.
 
 ## Task 14
-Participate in a planned authority auction.
+Participate in a planned authority auction - [instructions](/docs/instructions.md#register-an-authority)
 * You must submit a bid commit and a bid reveal in a planned authority auction.
 * Testnet coordinators will announce when a planned authority auction will take place.
 * You will be awarded 10 points for every planned auction you participate in, for a maximum of 100 points.
 
 ## Task 15
-Win a planned authority auction.
+Win a planned authority auction - [instructions](/docs/instructions.md#register-an-authority)
 * You must win a planned authority auction and register the corresponding authority.
 * Testnet coordinators will announce when a planned authority auction will take place.
 * This task will be considered complete when the authority is registered.

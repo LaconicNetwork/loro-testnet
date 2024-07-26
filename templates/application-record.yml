@@ -1,0 +1,18 @@
+record:
+  type: ApplicationRecord
+  version: 0.0.1
+  name: my-demo-app
+  description: "An example app"
+  homepage: http://demo.app.xyz
+  license: license
+  author: author
+  repository:
+    - "https://github.com/demo-app"
+  repository_ref: "v0.1.0"
+  app_version: "0.1.0"
+  app_type: "webapp"
+  meta:
+    foo: bar
+  tags:
+    - a
+    - b
