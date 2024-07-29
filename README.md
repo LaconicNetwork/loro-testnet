@@ -70,6 +70,8 @@ This testnet will allow participants to become familiar with the following compo
   * A CLI tool to configure and deploy laconicd, laconic-registry-cli, and laconic-console containers in a local host.
   * Testnet participants will be expected to use stack-orchestator to run their nodes and interact with the chain.
 
+A reference workflow for publishing apps through a Laconic chain can be found [here](/docs/publishing-webapps.md).
+
 ### Service Provider infrastructure
 
 Participants interested in becoming Service Providers must set up relevant infrastructure:
@@ -77,7 +79,7 @@ Participants interested in becoming Service Providers must set up relevant infra
 * Monitoring software to detect application deployment requests
 * DNS and Deployment Record registration tools
 
-A reference workflow for publishing apps through a Laconic chain can be found [here](/docs/publishing-webapps.md).
+A reference guide for setting up Service Provider infrastructure can be found [here](/docs/service-provider-setup.md).
 
 ## Rules
 

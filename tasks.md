@@ -90,6 +90,7 @@ Deploy your first app - [reference workflow](/docs/publishing-webapps.md)
   * A DNS Record is registered.
   * An Application Deployment Record is registered.
   * The application can be verified using the URL from the Application Deployment Record.
+* A reference Service Provider setup guide can be found [here](/docs/service-provider-setup.md).
 * You will be awarded 600 points for the first app you deploy.
 
 ## Task 15
@@ -99,6 +100,7 @@ Deploy apps - [reference workflow](/docs/publishing-webapps.md)
   * A DNS Record is registered.
   * An Application Deployment Record is registered.
   * The application can be verified using the URL from the Application Deployment Record.
+* A reference Service Provider setup guide can be found [here](/docs/service-provider-setup.md).
 * You will be awarded 2 points per app you deploy for each day it remains online, for a maximum of 30 points per app.
   * A maximum of 100 apps per Service Provider will be considered.
   * A maximum of 3000 points will be awarded for task 13.
