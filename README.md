@@ -77,6 +77,8 @@ Participants interested in becoming Service Providers must set up relevant infra
 * Monitoring software to detect application deployment requests
 * DNS and Deployment Record registration tools
 
+A reference workflow for publishing apps through a Laconic chain can be found [here](/docs/publishing-webapps.md).
+
 ## Rules
 
 The rules for participating in the LORO Testnet can be changed at any time. Changes will be committed here and announced in Discord by the testnet coordinators.
