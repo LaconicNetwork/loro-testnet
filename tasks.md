@@ -68,7 +68,7 @@ Register a record - [instructions](/docs/instructions.md#register-an-application
 * You will be awarded 2 points for each of the first 20 records you register, per record type, for a maximum of 40 points for each of these tasks.
 
 ## Tasks 11 - 13
-Publish apps
+Publish apps - [reference workflow](/docs/publishing-webapps.md)
 * You must publish at least one app that falls under the following categories:
   * Reference app: Several ready-made apps are listed below.
   * Modified reference app: An app from the list that you have forked and made changes to.
@@ -85,7 +85,7 @@ Publish apps
 * https://git.vdb.to/cerc-io/test-progressive-web-app
 
 ## Task 14
-Deploy your first app
+Deploy your first app - [reference workflow](/docs/publishing-webapps.md)
 * This task will be considered complete when it meets the following criteria:
   * A DNS Record is registered.
   * An Application Deployment Record is registered.
@@ -93,7 +93,7 @@ Deploy your first app
 * You will be awarded 600 points for the first app you deploy.
 
 ## Task 15
-Deploy apps
+Deploy apps - [reference workflow](/docs/publishing-webapps.md)
 * You must deploy multiple apps and keep them online.
 * The following criteria must be met for each before each task is considered eligible for points:
   * A DNS Record is registered.
