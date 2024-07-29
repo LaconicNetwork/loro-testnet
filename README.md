@@ -50,8 +50,6 @@ After the testnet concludes, the participants will be ranked according to the ta
 
 ### Week 2
 * Planned authority auctions take place
-
-### Week 3
 * Testnet coordinators submit Application Deployment Requests
 * Testnet conclusion
 
