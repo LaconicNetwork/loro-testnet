@@ -1,6 +1,6 @@
 # LORO Testnet 🦜
 
-Welcome to the Laconic Operational Ranking and Onboarding Testnet! This is a three-week incentivized testnet program that will onboard and assess participants interested in joining the [Laconic Network](https://laconic.com/).
+Welcome to the Laconic Operational Ranking and Onboarding Testnet! This is a two-week incentivized testnet program that will onboard and assess participants interested in joining the [Laconic Network](https://laconic.com/).
 
 This repo contains the event plan and information on the tasks that must be completed to collect points.
 
