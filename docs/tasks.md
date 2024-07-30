@@ -14,7 +14,7 @@ This page will be updated if there are any adjustments to the points allocated t
 | [8](#tasks-6-10)  | Register a DNS record                                     | 40         |
 | [9](#tasks-6-10)  | Register an application deployment record                 | 40         |
 | [10](#tasks-6-10) | Register an application deployment removal request record | 40         |
-|  [11](#task-11)   | Publish a reference webapp                                | 50         |
+|  [11](#task-11)   | Publish a webapp                                          | 50         |
 |  [12](#task-12)   | Publish a non-reference webapp                            | 300        |
 |  [13](#task-13)   | Deploy your first webapp                                  | 600        |
 |  [14](#task-14)   | Deploy webapps                                            | 3000       |
