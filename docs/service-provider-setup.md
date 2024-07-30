@@ -198,7 +198,7 @@ then run: `export VAULT_KEY=password` where `password` is the password used for 
 
 Next, run `bash .vault/vault-rekey.sh` and enter that same password when prompted.
 
-- TODO update link; review [this commit](https://git.vdb.to/cerc-io/service-provider-template/commit/32e1ad0bd73f0754c0978c96eaee526fa841ddb4) and modify the domain, IP, and hostnames, etc., to match your setup.
+- review [this pull request](https://git.vdb.to/cerc-io/service-provider-template/pulls/4) and make the required modifications to match your setup.
 
 6. Install required roles
 
