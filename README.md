@@ -7,14 +7,13 @@ This repo contains the event plan and information on the tasks that must be comp
 ## How to Join
 
 ### 1. Registration
-
 There are two apps you will use to register for the testnet.
 
-* The [wallet app](https://wallet.laconic.com) will:
+* The wallet app will:
   * Generate all the required keys and addresses.
   * Link your KYC UUID with a `laconic` address.
   * Publish your KYC UUID and keys to the chain.
-* The [onboarding app](https://loro-signup.laconic.com) will:
+* The onboarding app will:
   * Register your validator on the testnet.
   * Allow you to request funds from the faucet.
 
@@ -38,7 +37,7 @@ Testnet coordinators will provide updates to participants via Discord channels a
 
 After the testnet concludes, the participants will be ranked according to the tasks they completed.
 
-### The list of tasks and associated points can be found [here](./tasks.md).
+### The list of tasks and associated points can be found [here](/docs/tasks.md).
 
 ## Timeline
 
