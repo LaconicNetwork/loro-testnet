@@ -9,14 +9,14 @@ This page will be updated if there are any adjustments to the points allocated t
 | [3](#task-3) | Create a bond   | 40  |
 | [4](#task-4) | Register an authority  | 50  |
 | [5](#task-5) | Register a name  | 60  |
-| [6](#task-6) | Register an application record  | 40  |
-| [7](#task-7) | Register an application deployment request record | 40  |
-| [8](#task-8) | Register a DNS record  | 40  |
-| [9](#task-9) | Register an application deployment record | 40  |
-| [10](#task-10) | Register an application deployment removal request record | 40  |
-| [11](#task-11) | Publish a reference webapp  |  50 |
-| [12](#task-12)  | Publish a modified reference webapp  | 100  |
-| [13](#task-13) | Publish a non-reference webapp  |  200 |
+| [6](#tasks-6-10) | Register an application record  | 40  |
+| [7](#tasks-6-10) | Register an application deployment request record | 40  |
+| [8](#tasks-6-10) | Register a DNS record  | 40  |
+| [9](#tasks-6-10) | Register an application deployment record | 40  |
+| [10](#tasks-6-10) | Register an application deployment removal request record | 40  |
+| [11](#tasks-11-13) | Publish a reference webapp  |  50 |
+| [12](#tasks-11-13)  | Publish a modified reference webapp  | 100  |
+| [13](#tasks-11-13) | Publish a non-reference webapp  |  200 |
 | [14](#task-14)  |  Deploy your first webapp | 600  |
 | [15](#task-15)  |  Deploy webapps | 3000 |
 | [16](#task-16)   | Participate in a planned authority auction |  100 |
@@ -63,11 +63,11 @@ Register a name - [instructions](/docs/instructions.md#register-a-name)
 * You will be awarded 3 points for each of the first 20 names you register, for a maximum of 60 points.
 * Names that contain offensive or language that is deemed inappropriate by the testnet coordinators will not be counted.
 
-## Tasks 6 - 10
+## Tasks 6-10
 Register a record - [instructions](/docs/instructions.md#register-an-application-record)
 * You will be awarded 2 points for each of the first 20 records you register, per record type, for a maximum of 40 points for each of these tasks.
 
-## Tasks 11 - 13
+## Tasks 11-13
 Publish apps - [reference workflow](/docs/publishing-webapps.md)
 * You must publish at least one app that falls under the following categories:
   * Reference app: Several ready-made apps are listed below.
