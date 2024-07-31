@@ -593,7 +593,7 @@ services:
     bondId: ad9c977f4a641c2cf26ce37dcc9d9eb95325e9f317aee6c9f33388cdd8f2abb8
     chainId: laconic_9000-1
     gas: 9950000
-    fees: 500000photon
+    fees: 500000alnt
 ```
 
 Push the image and start up the deployer
