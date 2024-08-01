@@ -6,7 +6,7 @@ The following is a cheat sheet for all the CLI commands you may need to submit a
 
 Sample command:
 ```
-laconic-so deployment --dir laconic-console-deployment exec cli "laconic registry bond create --type photon --quantity 100000000000"
+laconic-so deployment --dir laconic-console-deployment exec cli "laconic registry bond create --type alnt --quantity 100000000000"
 ```
 ```
 {"bondId":"a742489e5817ef274187611dadb0e4284a49c087608b545ab6bd990905fb61f3"}
@@ -38,7 +38,7 @@ laconic-so deployment --dir laconic-console-deployment exec cli "laconic registr
 
 Commit a bid to the auction while its status is listed as `commit` using the auction ID. A reveal file will be generated.
 ```
-laconic-so deployment --dir laconic-console-deployment exec cli "laconic registry auction bid commit 73e0b082a198c396009ce748804a9060c674a10045365d262c1584f99d2771c1 5000000 photon --chain-id laconic_9000-1"
+laconic-so deployment --dir laconic-console-deployment exec cli "laconic registry auction bid commit 73e0b082a198c396009ce748804a9060c674a10045365d262c1584f99d2771c1 5000000 alnt --chain-id laconic_9000-1"
 ```
 ```
 {"reveal_file":"/app/out/bafyreiewi4osqyvrnljwwcb36fn6sr5iidfpuznqkz52gxc5ztt3jt4zmy.json"}
