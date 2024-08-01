@@ -244,7 +244,7 @@ c) `./group_vars/lcn_cad/k8s-vault.yml` which will be created in the next step a
 ---
 k8s_cluster_token: f63c34881f3d7fbd30229db4c82e902b
 
-# note: delete this file; it will be re-created when running `./roles/k8s/files/token-vault.sh ./group_vars/lcn_cad/k8s-vault.yml`
+# note: delete this file; it will be re-created when running `./roles/k8s/files/scripts/token-vault.sh ./group_vars/lcn_cad/k8s-vault.yml`
 ```
 
 With `ansible-vault`, files are encrypted like so:
