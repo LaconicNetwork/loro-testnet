@@ -22,6 +22,7 @@ hostnamectl set-hostname changeme
 
 In the following example, we've named each machine like so:
 ```
+lcn-daemon               23.111.69.218
 lcn-cad-cluster-control  23.111.78.182
 ```
 
