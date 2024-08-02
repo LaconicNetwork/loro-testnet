@@ -14,7 +14,7 @@ Using Digital Ocean's droplets as reference, these are the minimum suggested spe
 
 ## Initial Ubuntu base setup: `control` and `daemon` hosts
 
-1. Set unique hostnames 
+1. Set unique hostnames.
 
 ```
 hostnamectl set-hostname changeme
@@ -28,13 +28,13 @@ lcn-cad-cluster-control  23.111.78.182
 
 See below for the full list of DNS records to be configured.
 
-2. Next, update base packages:
+2. Update base packages.
 
 ```
 apt update && apt upgrade -y
 ```
 
-3. Install additional packages:
+3. Install additional packages.
 
 ```
 apt install -y doas zsh tmux git jq acl curl wget netcat-traditional fping rsync htop iotop iftop tar less firewalld sshguard wireguard iproute2 iperf3 zfsutils-linux net-tools ca-certificates gnupg sshpass
@@ -42,14 +42,14 @@ apt install -y doas zsh tmux git jq acl curl wget netcat-traditional fping rsync
 
 Select "Yes" when prompted for iperf3.
 
-4. Verify status of firewalld and enable sshguard:
+4. Verify status of firewalld and enable sshguard.
 
 ```
 systemctl enable --now firewalld
 systemctl enable --now sshguard
 ```
 
-5. Disable and remove snapd
+5. Disable and remove snapd.
 
 ```
 systemctl disable snapd.service
@@ -62,51 +62,21 @@ apt purge -y snapd
 rm -rf ~/snap /snap /var/snap /var/lib/snapd
 ```
 
-7. Create a new user `so`
+6. Create a `so` user.
 
 We will use the password `so-service-provider` in this example.
 ```
 adduser so
 ```
 
-8. Give the `so` user sudoer permissions
+7. Give the `so` user sudoer permissions.
 ```
 sudo adduser so sudo
 ```
 
-9. Run `ssh-keygen` in the `orchestrator host` and copy the pubkey from `~/.ssh/id_d25519.pub`.
+8. Run `ssh-keygen` in the `orchestrator` host and copy the pubkey from `~/.ssh/id_d25519.pub`.
 
-10. Create a `/home/so/.ssh/authorized_keys` file in `lcn-daemon` and `lcn-cad-cluster-control`, and paste the pubkey from the previous step in it.
-
-11. Install nginx and certbot:
-
-```
-apt install -y nginx certbot python3-certbot-nginx
-```
-
-12. Install Docker:
-
-```
-install -m 0755 -d /etc/apt/keyrings
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
-chmod a+r /etc/apt/keyrings/docker.gpg
-
-echo \
-  "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
-  "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
-
-apt update -y && apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-```
-
-13.   Log in as the `so` user and set up the docker permissions.
-
-```
-su so
-sudo groupadd docker
-sudo usermod -aG docker so
-```
-
-14. Confirm docker works with `docker run hello-world`.
+9. Create a `/home/so/.ssh/authorized_keys` file in both `lcn-daemon` and `lcn-cad-cluster-control`, and paste the pubkey from the previous step in it.
 
 
 ## Buy a domain and configure nameservers to DO
