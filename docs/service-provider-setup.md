@@ -1,18 +1,18 @@
-## Select and boot servers
+# Service Provider Setup Guide
+
+## Requirements
 
 Using Digital Ocean's droplets as reference, these are the minimum suggested specifications:
 
-- orchestrator (4G RAM, 25G Disk)
 - daemon (4G RAM, 25G Disk)
+  - This host will run `laconicd`. You can set up a private testnet for testing purposes.
+- orchestrator (4G RAM, 25G Disk)
+  - You will manage the entire Service Provider infrastructure from this host.
 - control (8vCPUs, 32G RAM, 300G Disk)
+  - This host will run a cluster to deploy all the applications requested from the Laconic chain.
 
-## Access control
 
-This is personal preference. At minimum, create new users and disable root access. The daemon and control will need an `so` user, see below.
-
-## Initial Ubuntu base setup
-
-**On daemon and control:**
+## Initial Ubuntu base setup: `control` and `daemon` hosts
 
 1. Set unique hostnames 
 
@@ -22,7 +22,6 @@ hostnamectl set-hostname changeme
 
 In the following example, we've named each machine like so:
 ```
-lcn-daemon               23.111.69.218
 lcn-cad-cluster-control  23.111.78.182
 ```
 
@@ -62,28 +61,29 @@ apt purge -y snapd
 rm -rf ~/snap /snap /var/snap /var/lib/snapd
 ```
 
-6. Create a new user `so`:
+7. Create a new user `so`
 
+We will use the password `so-service-provider` in this example.
 ```
 adduser so
-# make the password so-service-provider
 ```
+
+8. Give the `so` user sudoer permissions
 ```
-# then give this user sudoer permissions
 sudo adduser so sudo
 ```
 
-## Daemon-only (skip this step for the control node)
+9. Run `ssh-keygen` in the `orchestrator host` and copy the pubkey from `~/.ssh/id_d25519.pub`.
 
-1. On `orchestrator` run `ssh-keygen` then `cat ~/.ssh/id_ed25519.pub` and put the output in to `/home/so/.ssh/authorized_keys` on `lcn-daemon` and `lcn-cad-cluster-control`
+10. Create a `/home/so/.ssh/authorized_keys` file in `lcn-daemon` and `lcn-cad-cluster-control`, and paste the pubkey from the previous step in it.
 
-2. Install nginx and certbot:
+11. Install nginx and certbot:
 
 ```
 apt install -y nginx certbot python3-certbot-nginx
 ```
 
-3. Install Docker:
+12. Install Docker:
 
 ```
 install -m 0755 -d /etc/apt/keyrings
@@ -97,22 +97,25 @@ echo \
 apt update -y && apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 ```
 
-4. Logout from the root user and log back in as the `so` user. Then run:
+13.   Log in as the `so` user and set up the docker permissions.
 
 ```
+su so
 sudo groupadd docker
 sudo usermod -aG docker so
 ```
 
-5. Confirm docker works with `docker run hello-world`.
+14. Confirm docker works with `docker run hello-world`.
+
 
 ## Buy a domain and configure nameservers to DO
 
-In this example, we are using laconic.com with [nameservers pointing to Digital Ocean](https://docs.digitalocean.com/products/networking/dns/getting-started/dns-registrars/). You'll need to do the same. Integration with other providers is possible and encouraged, but requires know-how and research. Later, we'll need a Digital Ocean Access Token added to the ansible-vault.
+* In this example, we are using laconic.com with [nameservers pointing to Digital Ocean](https://docs.digitalocean.com/products/networking/dns/getting-started/dns-registrars/). You'll need to do the same. Integration with other providers is possible and encouraged, but requires know-how and research.
+* Generate a Digital Ocean Access Token, we will need one later.
 
 ## Configure DNS
 
-As mentioned, point your nameservers to Digital Ocean and create the following A and CNAME records from the Digital Ocean Dashboard.
+Point your nameservers to Digital Ocean and create the following A and CNAME records from the Digital Ocean Dashboard.
  
 Like this:
 
@@ -133,11 +136,24 @@ Like this:
 | CNAME  | *.pwa.laconic.com                    | lcn-cad-cluster-control.laconic.com. |
 
 
-## Use ansible to setup a k8s cluster
+## Setup a k8s cluster with Ansible: `orchestrator` host only
 
-The steps in this section and for the rest of the tutorial are to be completed on the `orchestrator` machine (with the exception of deploying laconicd on the daemon).
+1. Install stack orchestrator.
 
-1. Install ansible via virtual env
+```
+mkdir ~/bin
+curl -L -o ~/bin/laconic-so https://git.vdb.to/cerc-io/stack-orchestrator/releases/download/latest/laconic-so
+chmod +x ~/bin/laconic-so
+```
+
+2. Add `export PATH="$HOME/bin:$PATH"` to `~/.bashrc` , log out, and log back in.
+
+3. Verify stack orchestrator is in the PATH.
+```
+laconic-so version
+```
+
+4. Install ansible via virtual env.
 
 ```
 sudo apt install python3-pip python3.12-venv
@@ -147,43 +163,39 @@ pip install ansible
 ansible --version
 ```
 
-2. Install docker using the same instructions as above.
-
-3. Install stack orchestrator
+5. Install docker and test with `docker run hello-world` afterwards.
 
 ```
-mkdir ~/bin
-curl -L -o ~/bin/laconic-so https://git.vdb.to/cerc-io/stack-orchestrator/releases/download/latest/laconic-so
-chmod +x ~/bin/laconic-so
-# add `export PATH="$HOME/bin:$PATH"` to `~/.bashrc`
-laconic-so version
+install -m 0755 -d /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+chmod a+r /etc/apt/keyrings/docker.gpg
+
+echo \
+  "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+apt update -y && apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 ```
 
-4. Clone the service provider template repo and enter the directory
+6. Clone the service provider template repo and enter the directory
 
 ```
 git clone https://git.vdb.to/cerc-io/service-provider-template.git
 cd service-provider-template/
 ```
 
-5. Sort out credentials and ansible vault
-
-- get a digital ocean token, base64 encode it, and put that in the `files/manifests/secret-digitalocean-dns.yaml` file
-   
-- create a PGP key:
+7. Create a PGP key. You will need to use the passphrase from this step later on. We used `so-service-provider` in this example.
 
 ```
 gpg --full-generate-key
 ```
 
-then 
-
+8. List the secret keys.
 ```
 gpg --list-secret-keys --keyid-format=long
 ```
 
-which provides an output like:
-
+This will output something like this:
 ```
 [keyboxd]
 ---------
@@ -192,36 +204,51 @@ sec   rsa4096/0AFB10B643944C22 2024-05-03 [SC] [expires: 2025-05-03]
 uid                 [ultimate] user <hello@laconic.com>
 ```
 
-and replace the other keys with `0AFB10B643944C22` in the `.vault/vault-keys` file. Start the agent: `gpg-agent`.
+Note the `0AFB10B643944C22` sequence of characters.
 
-then run: `export VAULT_KEY=password` where `password` is the password used for creating the GPG key.
+9. Replace the keys listed in `.vault/vault-keys` with the sequence you obtained in the previous step (`0AFB10B643944C22` in this example).
 
-Next, run `bash .vault/vault-rekey.sh` and enter that same password when prompted.
+10. Start the GPG agent.
 
-- review [this pull request](https://git.vdb.to/cerc-io/service-provider-template/pulls/4) and make the required modifications to match your setup.
+```
+gpg-agent
+```
 
-6. Install required roles
+11. Run `export VAULT_KEY=password`, where `password is the passphrase used when generating the PGP key.
+
+12. Run `bash .vault/vault-rekey.sh` and enter the GPG passphrase again when prompted.
+
+13. Review [this pull request](https://git.vdb.to/cerc-io/service-provider-template/pulls/4) and make the required modifications to match your setup.
+  * `lcn`/`msp`: This can be replaced a three-letter identifier for your organization.
+  * `cad`: This can be replaced with a three-letter identifier for the location the host is running in.
+  * `laconic.com`: Replace this with your equivalent DNS domain.
+
+14. Install required Ansible roles.
 
 ```
 ansible-galaxy install -f -p roles -r roles/requirements.yml
 ```
 
-7. Install k8s helper tools
+15. Install k8s helper tools.
 
 ```
 sudo ./roles/k8s/files/scripts/get-kube-tools.sh
 ```
 
-8. Become familiar with encrypting and decrypting secrets using `ansible-vault`. You'll need have 3 files that are encrypted.
- 
-a) `group_vars/all/vault.yml` will look like:
+16.  Update `group_vars/all/vault.yml` as follows, replacing the email address:
 
 ```
 ---
 support_email: hello@laconic.com
 ```
 
-b) `files/manifests/secret-digitalocean-dns.yaml` will look like:
+17. Base64 encode your Digital Ocean token:
+
+```
+echo dop_v1<rest of your DO token> | base64 -w 0
+```
+
+18.  Update `files/manifests/secret-digitalocean-dns.yaml` using the output from the previous step:
 
 ```
 apiVersion: v1
@@ -238,69 +265,46 @@ metadata:
   namespace: cert-manager
 ```
 
-c) `./group_vars/lcn_cad/k8s-vault.yml` which will be created in the next step and looks like:
-
+19.  Remove the `./group_vars/lcn_cad/k8s-vault.yml` file. 
+  
 ```
----
-k8s_cluster_token: f63c34881f3d7fbd30229db4c82e902b
-
-# note: delete this file; it will be re-created when running `./roles/k8s/files/scripts/token-vault.sh ./group_vars/lcn_cad/k8s-vault.yml`
+rm ./group_vars/lcn_cad/k8s-vault.yml
 ```
 
-With `ansible-vault`, files are encrypted like so:
 
-```
-ansible-vault encrypt path/to/file.yaml
-```
+20. Generate token for the cluster.
 
-and the result overwrites the original file with the encrypted version.
-
-To then decrypt that file run: 
-
-```
-echo 'content-of-the-file' | ansible-vault decrypt
-```
-
-and the decrypted file will be output to stdout.
-
-You can add additional PGP key IDs to the `.vault/vault-keys` file and re-key the vault to give other users access.
-
-9. Generate token for the cluster
-
-As mentioned, `rm ./group_vars/lcn_cad/k8s-vault.yml` then
-
+* Change `lcn_cad` in the command below to the name used for your service provider deployment:
 ```
 ./roles/k8s/files/scripts/token-vault.sh ./group_vars/lcn_cad/k8s-vault.yml
 ```
 
-Note: `lcn_cad` should be changed to a different name used for your service provider deployment.
-
-10. Configure firewalld and nginx for hosts
+21. Configure firewalld and nginx for hosts.
 
 ```
 ansible-playbook -i hosts site.yml --tags=firewalld,nginx --user so -kK
 ```
-When prompted, enter the password for the `so` user that was created both the daemon and control machines.
+When prompted, enter the password for the `so` user that was created both the daemon and control machines (`so-service-provider` in this example).
 
-11. Install Stack Orchestrator for hosts
+22. Install Stack Orchestrator for hosts.
 
 ```
 ansible-playbook -i hosts site.yml --tags=so --limit=so --user so -kK
 ```
-Enter the `so` user password again.
+Enter the `so` user password again (`so-service-provider` in this example).
 
-12. Deploy k8s to hosts
+23. Deploy k8s to hosts
 
-This step creates the cluster and puts the `kubeconfig.yml` at on your local machine here: `~/.kube/config-default.yaml`. You'll need it for later.
+This step creates the cluster and puts `kubeconfig.yml` on your local machine here: `~/.kube/config-default.yaml`. You will need it later.
 
 ```
 ansible-playbook -i hosts site.yml --tags=k8s --limit=lcn_cad --user so -kK
 ```
-Enter the `so` user password again.
+Enter the `so` user password again (`so-service-provider` in this example).
 
 **Note:** For debugging, to undeploy, add `--extra-vars 'k8s_action=destroy'` to the above command.
 
-13. Verify cluster creation
+24.  Verify cluster creation
 
 Run these commands to view the various resources that were created by the ansible playbook. Your output form each commmand should look similar.
 
@@ -351,7 +355,27 @@ NAMESPACE     NAME                                      DESIRED   CURRENT   READ
 kube-system   svclb-ingress-nginx-controller-a766a501   1         1         1       1            1           <none>          5m32s
 ```
 
-## Nginx and SSL
+### Ansible Vault Notes
+
+With `ansible-vault`, files are encrypted this way:
+
+```
+ansible-vault encrypt path/to/file.yaml
+```
+
+and the result overwrites the original file with the encrypted version.
+
+To decrypt that file, run: 
+
+```
+echo 'content-of-the-file' | ansible-vault decrypt
+```
+
+and the decrypted file will be output to stdout.
+
+You can add additional PGP key IDs to the `.vault/vault-keys` file and re-key the vault to give other users access.
+
+### Nginx and SSL
 
 If your initial ansible configuration was modified correctly; nginx and SSL will work. The k8s cluster was created with these features automated.
 
@@ -359,10 +383,14 @@ If your initial ansible configuration was modified correctly; nginx and SSL will
 
 This will be the first test that everything is configured correctly.
 
+1. Generate the spec file for the `container-registry` stack.
 ```
 laconic-so --stack container-registry deploy init --output container-registry.spec
 ```
-Modify the `container-registry.spec` to look like:
+
+2. Modify the `container-registry.spec` as shown below.
+* Set the `host-name` field according to your configuration.
+
 ```
 stack: container-registry
 deploy-to: k8s
@@ -382,42 +410,42 @@ configmaps:
   config: ./configmaps/config
 ```
 
-then run:
+3. Create the deployment directory for the `container-registry` stack.
 ```
 laconic-so --stack container-registry deploy create --deployment-dir container-registry --spec-file container-registry.spec
 ```
 
-The above commands created a new directory; `container-registry`. It looks like:
+The above commands created a new directory; `container-registry`. It should contain the following:
 
 ```
 $ ls
 compose/  config.env configmaps/ deployment.yml kubeconfig.yml pods/  spec.yml  stack.yml
 ```
 
-### Htpasswd
+### Configure access to the container registry
 
-1. Create the `htpasswd` file:
+1. Generate a username and password for the container registry.
+* Username: `so-reg-user`
+* Password: `pXDwO5zLU7M88x3aA`
+
+2. Base64 encode the container registry credentials.
+```
+echo -n "so-reg-user:pXDwO5zLU7M88x3aA" | base64 -w0
+c28tcmVnLXVzZXI6cFhEd081ekxVN004OHgzYUE=
+```
+
+3. Encrypt the conteainer registry credentials to create an `htpasswd` file:
 
 ```
-htpasswd -b -c container-registry/configmaps/config/htpasswd so-reg-user pXDwO5zLU7M88x3aA
+htpasswd -bB -c container-registry/configmaps/config/htpasswd so-reg-user pXDwO5zLU7M88x3aA
 ```
 
-the resulting file should look like:
-
+The resulting file should look like this:
 ```
 so-reg-user:$2y$05$Eds.WkuUgn6XFUL8/NKSt.JTX.gCuXRGQFyJaRit9HhrUTsVrhH.W
 ```
 
-2. Configure the file `container-registry/config.env` like this:
-
-```
-REGISTRY_AUTH=htpasswd
-REGISTRY_AUTH_HTPASSWD_REALM="LCN Service Provider Image Registry"
-REGISTRY_AUTH_HTPASSWD_PATH="/config/htpasswd"
-REGISTRY_HTTP_SECRET='$2y$05$Eds.WkuUgn6XFUL8/NKSt.JTX.gCuXRGQFyJaRit9HhrUTsVrhH.W'
-```
-
-3. Using these credentials, create a `container-registry/my_password.json` that looks like:
+4. Using the credentials from the previous steps, create a `container-registry/my_password.json` file.
 
 ```
 {
@@ -429,27 +457,30 @@ REGISTRY_HTTP_SECRET='$2y$05$Eds.WkuUgn6XFUL8/NKSt.JTX.gCuXRGQFyJaRit9HhrUTsVrhH
     }
   }
 }
-
-```
-where the `auth:` field is the output of:
-
-```
-echo -n "so-reg-user:pXDwO5zLU7M88x3aA" | base64 -w0
 ```
 
-4. Add the container registry credentials as a secret available to the cluster:
+5. Configure the file `container-registry/config.env` as follows:
+
+```
+REGISTRY_AUTH=htpasswd
+REGISTRY_AUTH_HTPASSWD_REALM="LCN Service Provider Image Registry"
+REGISTRY_AUTH_HTPASSWD_PATH="/config/htpasswd"
+REGISTRY_HTTP_SECRET='$2y$05$Eds.WkuUgn6XFUL8/NKSt.JTX.gCuXRGQFyJaRit9HhrUTsVrhH.W'
+```
+
+6. Add the container registry credentials as a secret available to the cluster:
 
 ```
 kubectl create secret generic laconic-registry --from-file=.dockerconfigjson=container-registry/my_password.json --type=kubernetes.io/dockerconfigjson
 ```
 
-5. deploy it:
+7. Deploy the container registry.
 
 ```
 laconic-so deployment --dir container-registry start
 ```
 
-6. Check the logs:
+6. Check the logs.
 
 ```
 laconic-so deployment --dir container-registry logs
@@ -471,7 +502,7 @@ All this htpasswd configuration will enable the deployer (below) to build and pu
 
 ### Set ingress annotations
 
-1. replace `laconic-26cc70be8a3db3f4` with the `cluster-id` found in `container-registry/deployment.yml` then run the following commands:
+1. Replace `laconic-26cc70be8a3db3f4` with the `cluster-id` found in `container-registry/deployment.yml` then run the following commands:
 ```
 kubectl annotate ingress laconic-26cc70be8a3db3f4-ingress nginx.ingress.kubernetes.io/proxy-body-size=0
 kubectl annotate ingress laconic-26cc70be8a3db3f4-ingress nginx.ingress.kubernetes.io/proxy-read-timeout=600
@@ -486,29 +517,32 @@ For the testnet, this next step will require using the onboarding app. Running a
 
 ### Deploy a single laconicd fixturenet and console
 
-Follow the instructions in [this document](https://git.vdb.to/cerc-io/fixturenet-laconicd-stack/src/branch/main/stack-orchestrator/stacks/fixturenet-laconicd/README.md)
+Follow the instructions in [this document](https://git.vdb.to/cerc-io/fixturenet-laconicd-stack/src/branch/main/stack-orchestrator/stacks/fixturenet-laconicd/README.md) from the `daemon` host.
 
-After publishing sample records, you'll have a `bondId`. Also retreive your `userKey` (private key) which will be required later.
+See the [Perform operations](https://git.vdb.to/cerc-io/fixturenet-laconicd-stack/src/branch/main/stack-orchestrator/stacks/fixturenet-laconicd/README.md#perform-operations) section for instructions on how to collect the following:
+* Bond ID
+* Private key
 
-#### Set name authority
 
-```
-laconic registry authority reserve my-org-name
-laconic registry authority bond set my-org-name <bondId>
-```
+### Set a name authority
 
-where `my-org-name` needs to be added to the `package.json` of any application deployed under this namespace and will be set as the env var `DEPLOYMENT_RECORD_NAMESPACE="my-org-name"`, below.
+Follow [these steps](https://github.com/hyphacoop/loro-testnet/blob/main/docs/instructions.md#register-an-authority) to create an authority.
+* This authority needs to be added to the `package.json` of any application deployed under this namespace
+* This authority will be set as the variable `DEPLOYMENT_RECORD_NAMESPACE="my-org-name"` in the next section.
 
-## Deploy back end
+## Deploy backend
 
 This service listens for `ApplicationDeploymentRequest`'s in the Laconic Registry and automatically deploys an application to the k8s cluster.
+
+1. Initialize a spec file for the deployer backend.
 
 ```
 laconic-so --stack webapp-deployer-backend setup-repositories
 laconic-so --stack webapp-deployer-backend build-containers
 laconic-so --stack webapp-deployer-backend deploy init --output webapp-deployer.spec
 ```
-Modify `webapp-deployer.spec`:
+
+2. Modify the contents of `webapp-deployer.spec`:
 
 ```
 stack: webapp-deployer-backend
@@ -548,18 +582,17 @@ resources:
       storage: 200G
 ```
 
-then run:
+3. Create the deployment directory from the spec file.
 ```
 laconic-so --stack webapp-deployer-backend deploy create --deployment-dir webapp-deployer --spec-file webapp-deployer.spec
 ```
-
-Modify the contents of `webapp-deployer/config.env`:
+4. Modify the contents of `webapp-deployer/config.env`:
 
 ```
 DEPLOYMENT_DNS_SUFFIX="pwa.laconic.com"
 
 # this should match the name authority reserved above
-DEPLOYMENT_RECORD_NAMESPACE="mito"
+DEPLOYMENT_RECORD_NAMESPACE="my-org-name"
 
 # url of the deployed docker image registry
 IMAGE_REGISTRY="container-registry.pwa.laconic.com"
@@ -578,12 +611,8 @@ CHECK_INTERVAL=5
 FQDN_POLICY="allow"
 ```
 
-In `webapp-deployer/data/config/` there needs to be two files:
-  1. `kube.yml` --> copied from `/home/so/.kube/config-default.yaml`
-  2. `laconic.yml` --> with the details for talking to laconicd
-
-The latter looks like:
-
+5. Copy `~/.kube/config-default.yaml` from the k8s cluster creation step to `webapp-deployer/data/config/kube.yml`
+6. Create `webapp-deployer/data/config/laconic.yml`, it should look like this:
 ```
 services:
   registry:
@@ -591,22 +620,27 @@ services:
     gqlEndpoint: 'https://lcn-daemon.laconic.com:9473/api'
     userKey: e64ae9d07b21c62081b3d6d48e78bf44275ffe0575f788ea7b36f71ea559724b
     bondId: ad9c977f4a641c2cf26ce37dcc9d9eb95325e9f317aee6c9f33388cdd8f2abb8
-    chainId: laconic_9000-1
+    chainId: lorotestnet-1
     gas: 9950000
     fees: 500000alnt
 ```
+Modify the endpoints, user key, and bond ID according to your configuration.
 
-Push the image and start up the deployer
+7. Push the image to the container registry.
 ```
-laconic-so deployment --dir webapp-deployer push-images
 laconic-so deployment --dir webapp-deployer start
 ```
 
-Now, publishing records to the Laconic Registry will trigger deployments. See below for more details.
+8. Start the deployer.
+```
+laconic-so deployment --dir webapp-deployer start
+```
 
-## Deploy front end
+Publishing records to the Laconic Registry will trigger deployments in your backend now.
 
-1. Clone and build the UI
+## Deploy frontend
+
+1. Clone and build the deployer UI
 
 ```
 git clone https://git.vdb.to/cerc-io/webapp-deployment-status-ui.git ~/cerc/webapp-deployment-status-ui
@@ -619,13 +653,16 @@ laconic-so build-webapp --source-repo ~/cerc/webapp-deployment-status-ui
 laconic-so deploy-webapp create --kube-config /root/.kube/config-default.yaml --image-registry container-registry.pwa.laconic.com --deployment-dir webapp-ui --image cerc/webapp-deployment-status-ui:local --url https://webapp-deployer-ui.pwa.laconic.com --env-file ~/cerc/webapp-deployment-status-ui/.env
 ```
 
-3. Push the image and start the service
+3. Push the image to the container registry.
 ```
 laconic-so deployment --dir webapp-ui push-images
+```
+4. Start the deployer UI
+```
 laconic-so deployment --dir webapp-ui start
 ```
 
-4. Wait a moment then view https://webapp-deployer-ui.pwa.laconic.com for the status and logs of each deployment.
+1. Wait a moment then go to https://webapp-deployer-ui.pwa.laconic.com for the status and logs of each deployment.
 
 ## Deploy a test webapp
 
@@ -652,3 +689,4 @@ We now have:
 - https://webapp-deployer-api.pwa.laconic.com listens for ApplicationDeploymentRequest and runs `laconic-so deploy-webapp-from-registry` behind the scenes
 - https://webapp-deployer-ui.pwa.laconic.com displays status and logs for webapps deployed via the Laconic Registry
 - https://app-name-45wjhbhef.pwa.laconic.com is the webapp deployed above
+
