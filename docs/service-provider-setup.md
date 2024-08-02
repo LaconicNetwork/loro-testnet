@@ -4,11 +4,11 @@
 
 Using Digital Ocean's droplets as reference, these are the minimum suggested specifications:
 
-- daemon (4G RAM, 25G Disk)
+- daemon (2 vCPUs, 4G RAM)
   - This host will run `laconicd`. You can set up a private testnet for testing purposes.
-- orchestrator (4G RAM, 25G Disk)
+- orchestrator (2 vCPUs, 4G RAM)
   - You will manage the entire Service Provider infrastructure from this host.
-- control (8vCPUs, 32G RAM, 300G Disk)
+- control (8vCPUs, 32G RAM)
   - This host will run a cluster to deploy all the applications requested from the Laconic chain.
 
 
