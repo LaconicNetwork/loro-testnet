@@ -89,6 +89,7 @@ Publish a non-reference app - [reference workflow](/docs/publishing-webapps.md)
   * The Application Record includes a `non-reference` tag.
   * The application can be verified using the URL from the Application Deployment Record.
   * Testnet coordinators confirm that the deployed app is different from the reference app.
+* Only the first Application Record that is registered with a `non-reference` tag will be evaluated.
 * You will be awarded 300 points for the first non-reference app you deploy.
 
 ## Task 13

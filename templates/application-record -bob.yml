@@ -1,0 +1,11 @@
+record:
+  type: ApplicationRecord
+  version: 1.0.0
+  name: "@bob/fries"
+  repository:
+    - "https://github.com/bobby/fries"
+  repository_ref: "be15ad5492699aj4c85810fa5c10a28e1f8b8725"
+  app_version: "0.0.1"
+  app_type: "webapp"
+  tags:
+    - example

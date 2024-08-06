@@ -1,0 +1,11 @@
+record:
+  type: ApplicationDeploymentRequest
+  version: 1.0.0
+  name: "bob/fries@0.0.1"
+  application: "lrn://bob/applications/fries@0.0.1"
+  config:
+    env:
+      CERC_WEBAPP_DEBUG: "0.0.1"
+  meta:
+    repository: "https://github.com/bob/fries"
+    repository_ref: "be15ad5492699aj4c85810fa5c10a28e1f8b8725"

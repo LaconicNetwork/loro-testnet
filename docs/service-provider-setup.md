@@ -405,7 +405,7 @@ echo -n "so-reg-user:pXDwO5zLU7M88x3aA" | base64 -w0
 c28tcmVnLXVzZXI6cFhEd081ekxVN004OHgzYUE=
 ```
 
-3. Encrypt the conteainer registry credentials to create an `htpasswd` file:
+3. Encrypt the container registry credentials to create an `htpasswd` file:
 
 ```
 htpasswd -bB -c container-registry/configmaps/config/htpasswd so-reg-user pXDwO5zLU7M88x3aA
