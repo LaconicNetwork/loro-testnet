@@ -1,0 +1,7 @@
+record:
+  type: ApplicationDeploymentRecord
+  version: 1.0.0
+  url: https://fries-13r8rdasg.pwa.bob.tech
+  name: "@bob/fries"
+  application: bafyreibln2qgnj4swmqnpzfqyryylovei64xglma6euufr4rs3gghu6xe4
+  dns: bafyreiefnnnwbvd2hpmxkhhgx432t4l45su3ipqgrsmqlgvwgz7ztg3l6y

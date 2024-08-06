@@ -1,0 +1,22 @@
+{
+    "name": "@bob/fries",
+    "version": "0.1.0",
+    "repository": "https://github.com/bobby/fries",
+    "scripts": {
+      "dev": "next dev",
+      "build": "next build",
+      "start": "next start"
+    },
+    "dependencies": {
+      "next": "latest",
+      "next-pwa": "^5.6.0",
+      "react": "^18.2.0",
+      "react-dom": "^18.2.0"
+    },
+    "devDependencies": {
+      "@types/node": "17.0.4",
+      "@types/react": "17.0.38",
+      "typescript": "^5"
+    }
+  }
+  

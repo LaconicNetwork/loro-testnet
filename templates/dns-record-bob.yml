@@ -1,0 +1,5 @@
+record:
+  type: DnsRecord
+  version: 1.0.0
+  name: "https://fries-13r8rdasg.pwa.bob.tech"
+  resource_type: "A"
