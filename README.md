@@ -6,19 +6,57 @@ This repo contains the event plan and information on the tasks that must be comp
 
 ## How to Join
 
-### 1. Registration
-There are two apps you will use to register for the testnet.
+### Sign up
 
-* The wallet app will:
-  * Generate all the required keys and addresses.
-  * Link your KYC UUID with a `laconic` address.
-  * Publish your KYC UUID and keys to the chain.
-* The onboarding app will:
-  * Register your validator on the testnet.
-  * Allow you to request funds from the faucet.
+You must follow a sign-up process regardless of whether you are participating as a Validator/Service Provider or as an App Publisher.
 
-### 2. Node setup
-Instructions on how to set up a node will be published in this repo ahead of the testnet launch.
+Open the wallet and onboarding apps in separate tabs and follow the steps below.
+
+| Wallet app |  Onboarding app  |
+|:----|:----|
+| Click on `Create wallet`* | |
+|   | Accept the Terms and Conditions  |
+|   | Verify your email adddress |
+|    | Click on `Connect wallet` |
+|    | Click the top-right icon of the WalletConnect dialog to copy the URI |
+|  Click the top-right icon of the page |   |
+|  Click on `Pair` and paste the URI |  |
+|  | Select the Laconic and Nitro accounts from your wallet |
+|  | Sign using the Nitro key  |
+| Approve the sign request | |
+| | Select your role |  
+|  | Click the `Request tokens from faucet` button** |
+| | Send transaction request to the wallet |
+| Approve and send transaction | |
+
+**\* Save the mnemonic in a safe place.**  
+\** Ensure the displayed balance is updated.
+
+### Set up a Validator Node
+
+The testnet chain will be started through a two-staged process:
+
+#### Stage 0
+
+* A Stage 0 chain is launched as a single-node Proof of Authority network.
+* The Stage 0 chain is used to collect all the onboarding app transactions and register account addresses.
+* At the end of Stage 0, the following items will be published in this repo:
+  * Genesis file
+  * Stage 1 bootstrap node information
+* **Participants must complete the sign-up process during this stage.**
+
+#### Stage 1
+
+Follow [these instructions](/docs/validator-setup.md) to set up a validator node.
+
+* The Stage 1 chain (the LORO testnet) is launched from a bootstrap node using the genesis file generated at the end of Stage 0.
+* Participants sync their nodes to the Stage 1 chain using the published genesis file and Stage 1 bootstrap node peer
+* Participants submit a `create-validator` transaction to the chain.
+* **Participants must begin signing blocks within 24 hours after Stage 1 begins.**
+
+### Set up Service Provider Infrastructure
+
+Follow [these instructions](/docs/service-provider-setup.md) to set up Service Provider infrastructure.
 
 ## Testnet Plan Overview
 > ⚠️ Please be aware that the schedule, tasks, and point breakdown are subject to change. ⚠️
@@ -45,18 +83,16 @@ After the testnet concludes, the participants will be ranked according to the ta
 * Testnet launch
 * Participants set up Service Provider infrastructure
 * Participants begin registering authorities
-* Participants begin publishing apps
+* Participants begin publishing and deploying apps
 
 ### Week 2
-* Planned authority auctions take place
+* Participants continue to publish and deploy apps
 
 ### Week 3
-* Testnet coordinators submit Application Deployment Requests
+* Planned authority auctions take place
 * Testnet conclusion
 
-## The Laconic Stack
-
-A good first step to onboarding to the Laconic stack is reading this article: https://laconic.com/blog/intro-to-the-laconic-stack
+## Laconic Testnet Software
 
 This testnet will allow participants to become familiar with the following components:
 * [laconicd](https://git.vdb.to/cerc-io/laconicd)
