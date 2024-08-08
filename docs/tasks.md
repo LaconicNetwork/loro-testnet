@@ -2,29 +2,32 @@
 
 This page will be updated if there are any adjustments to the points allocated to each task or the tasks themselves.
 
-|        ID         | Task                                                      | Max Points |
-| :---------------: | :-------------------------------------------------------- | :--------- |
-|   [1](#task-1)    | Run a validator                                           | 400        |
-|   [2](#task-2)    | Sign as many blocks as possible                           | 100        |
-|   [3](#task-3)    | Create a bond                                             | 40         |
-|   [4](#task-4)    | Register an authority                                     | 50         |
-|   [5](#task-5)    | Register a name                                           | 60         |
-| [6](#tasks-6-10)  | Register an application record                            | 40         |
-| [7](#tasks-6-10)  | Register an application deployment request record         | 40         |
-| [8](#tasks-6-10)  | Register a DNS record                                     | 40         |
-| [9](#tasks-6-10)  | Register an application deployment record                 | 40         |
-| [10](#tasks-6-10) | Register an application deployment removal request record | 40         |
-|  [11](#task-11)   | Publish a webapp                                          | 50         |
-|  [12](#task-12)   | Publish a non-reference webapp                            | 300        |
-|  [13](#task-13)   | Deploy your first webapp                                  | 600        |
-|  [14](#task-14)   | Deploy webapps                                            | 3000       |
-|  [15](#task-15)   | Participate in a planned authority auction                | 100        |
-|  [16](#task-16)   | Win a planned authority auction                           | 500        |
-|  [17](#task-17)   | Create or improve registry monitoring                     | 1000       |
-|  [18](#task-18)   | Create or improve deployment tooling                      | 1000       |
-|  [19](#task-19)   | Write a new stack for the app publishing pipeline         | 2000       |
-|  [20](#task-20)   | Provide the most assistance to other participants         | 100        |
+|        ID         | Task                                                      | Max Points | Availability* |
+| :---------------: | :-------------------------------------------------------- | :--------- | :-----------: |
+|   [1](#task-1)    | Run a validator                                           | 400        |       V       |
+|   [2](#task-2)    | Sign as many blocks as possible                           | 100        |       V       |
+|   [3](#task-3)    | Create a bond                                             | 40         |      V,P      |
+|   [4](#task-4)    | Register an authority                                     | 50         |      V,P      |
+|   [5](#task-5)    | Register a name                                           | 60         |      V,P      |
+| [6](#tasks-6-10)  | Register an application record                            | 40         |      V,P      |
+| [7](#tasks-6-10)  | Register an application deployment request record         | 40         |      V,P      |
+| [8](#tasks-6-10)  | Register a DNS record                                     | 40         |       V       |
+| [9](#tasks-6-10)  | Register an application deployment record                 | 40         |       V       |
+| [10](#tasks-6-10) | Register an application deployment removal request record | 40         |      V,P      |
+|  [11](#task-11)   | Publish a webapp                                          | 50         |      V,P      |
+|  [12](#task-12)   | Publish a non-reference webapp                            | 300        |      V,P      |
+|  [13](#task-13)   | Deploy your first webapp                                  | 600        |       V       |
+|  [14](#task-14)   | Deploy webapps                                            | 3000       |       V       |
+|  [15](#task-15)   | Participate in a planned authority auction                | 100        |       V       |
+|  [16](#task-16)   | Win a planned authority auction                           | 500        |       V       |
+|  [17](#task-17)   | Create or improve registry monitoring                     | 1000       |       V       |
+|  [18](#task-18)   | Create or improve deployment tooling                      | 1000       |       V       |
+|  [19](#task-19)   | Write a new stack for the app publishing pipeline         | 2000       |      V,P      |
+|  [20](#task-20)   | Provide the most assistance to other participants         | 100        |      V,P      |
 
+\*The `Availability` column shows which tasks are available to:
+* Validator/Service Provider participants only (V)
+* Validator/Service Provider and App Publisher participants (V,P)
 
 ## Prerequisites
 
