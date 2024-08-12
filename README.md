@@ -10,7 +10,7 @@ This repo contains the event plan and information on the tasks that must be comp
 
 You must follow a sign-up process regardless of whether you are participating as a Validator/Service Provider or as an App Publisher.
 
-Open the wallet and onboarding apps in separate tabs and follow the steps below.
+Open the [wallet](https://wallet.laconic.com/) and [onboarding](https://loro-signup.laconic.com/) apps in separate tabs and follow the steps below.
 
 | Wallet app |  Onboarding app  |
 |:----|:----|
