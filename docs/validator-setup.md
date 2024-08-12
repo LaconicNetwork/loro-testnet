@@ -20,6 +20,7 @@
 * Testnet genesis file and peer node address
 * Mnemonic from the wallet app
 * Participant onboarded in Stage 0
+* Stage 1 has started
 
 ### Setup
 
@@ -137,9 +138,9 @@ laconic-so deployment --dir testnet-laconicd-deployment start
 
 #### Using the onboarding app
 
-* Open the wallet app
+* Open the [wallet app](https://wallet.laconic.com/)
 * Create a validator from the onboarding app:
-  * Visit the validator creation page
+  * Visit the [validator creation](https://loro-signup.laconic.com/validator) page
     * If required, connect the onboarding app to the wallet used in Stage 0
   * Select the Laconic account you wish to send the create validator request from (it should be the same one you used while onboarding)
     * This should display the details of your onboarded participant

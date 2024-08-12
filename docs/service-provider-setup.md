@@ -11,6 +11,32 @@ Using Digital Ocean's droplets as reference, these are the minimum suggested spe
 - control (8vCPUs, 32G RAM)
   - This host will run a cluster to deploy all the applications requested from the Laconic chain.
 
+## Buy a domain and configure nameservers to DO
+
+* In this example, we are using laconic.com with [nameservers pointing to Digital Ocean](https://docs.digitalocean.com/products/networking/dns/getting-started/dns-registrars/). You'll need to do the same. Integration with other providers is possible and encouraged, but requires know-how and research.
+* Generate a Digital Ocean Access Token, we will need one later.
+
+## Configure DNS
+
+Point your nameservers to Digital Ocean and create the following A and CNAME records from the Digital Ocean Dashboard.
+ 
+Like this:
+
+|  Type  |            Hostname                  |            Value                     |
+|--------|--------------------------------------|--------------------------------------|
+| A      | lcn-daemon.laconic.com               | 23.111.69.218                        |
+| A      | lcn-cad-cluster-control.laconic.com  | 23.111.78.179                        |
+| NS     | laconic.com                          | ns1.digitalocean.com.                |
+| NS     | laconic.com                          | ns2.digitalocean.com.                |
+| NS     | laconic.com                          | ns3.digitalocean.com.                |
+| CNAME  | www.laconic.com                      | laconic.com.                         |
+| CNAME  | laconicd.laconic.com                 | lcn-daemon.laconic.com.              |
+| CNAME  | lcn-backend.laconic.com              | lcn-daemon.laconic.com.              |
+| CNAME  | lcn-console.laconic.com              | lcn-daemon.laconic.com.              |
+| CNAME  | lcn-cad.laconic.com                  | lcn-cad-cluster-control.laconic.com. |
+| CNAME  | *.lcn-cad.laconic.com                | lcn-cad-cluster-control.laconic.com. |
+| CNAME  | pwa.laconic.com                      | lcn-cad-cluster-control.laconic.com. |
+| CNAME  | *.pwa.laconic.com                    | lcn-cad-cluster-control.laconic.com. |
 
 ## Initial Ubuntu base setup: `control` and `daemon` hosts
 
@@ -77,35 +103,6 @@ sudo adduser so sudo
 8. Run `ssh-keygen` in the `orchestrator` host and copy the pubkey from `~/.ssh/id_d25519.pub`.
 
 9. Create a `/home/so/.ssh/authorized_keys` file in both `lcn-daemon` and `lcn-cad-cluster-control`, and paste the pubkey from the previous step in it.
-
-
-## Buy a domain and configure nameservers to DO
-
-* In this example, we are using laconic.com with [nameservers pointing to Digital Ocean](https://docs.digitalocean.com/products/networking/dns/getting-started/dns-registrars/). You'll need to do the same. Integration with other providers is possible and encouraged, but requires know-how and research.
-* Generate a Digital Ocean Access Token, we will need one later.
-
-## Configure DNS
-
-Point your nameservers to Digital Ocean and create the following A and CNAME records from the Digital Ocean Dashboard.
- 
-Like this:
-
-|  Type  |            Hostname                  |            Value                     |
-|--------|--------------------------------------|--------------------------------------|
-| A      | lcn-daemon.laconic.com               | 23.111.69.218                        |
-| A      | lcn-cad-cluster-control.laconic.com  | 23.111.78.179                        |
-| NS     | laconic.com                          | ns1.digitalocean.com.                |
-| NS     | laconic.com                          | ns2.digitalocean.com.                |
-| NS     | laconic.com                          | ns3.digitalocean.com.                |
-| CNAME  | www.laconic.com                      | laconic.com.                         |
-| CNAME  | laconicd.laconic.com                 | lcn-daemon.laconic.com.              |
-| CNAME  | lcn-backend.laconic.com              | lcn-daemon.laconic.com.              |
-| CNAME  | lcn-console.laconic.com              | lcn-daemon.laconic.com.              |
-| CNAME  | lcn-cad.laconic.com                  | lcn-cad-cluster-control.laconic.com. |
-| CNAME  | *.lcn-cad.laconic.com                | lcn-cad-cluster-control.laconic.com. |
-| CNAME  | pwa.laconic.com                      | lcn-cad-cluster-control.laconic.com. |
-| CNAME  | *.pwa.laconic.com                    | lcn-cad-cluster-control.laconic.com. |
-
 
 ## Setup a k8s cluster with Ansible: `orchestrator` host only
 
