@@ -2,6 +2,12 @@
 
 The following is a cheat sheet for all the CLI commands you may need to submit at one point during the LORO testnet.
 
+## Export private key
+
+```
+laconic-so deployment --dir testnet-laconicd-deployment exec laconicd "laconicd keys export <key-name> --unarmored-hex --unsafe"
+```
+
 ## Create a bond
 
 Sample command:

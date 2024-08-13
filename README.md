@@ -45,6 +45,12 @@ The testnet chain will be started through a two-staged process:
   * Stage 1 bootstrap node information
 * **Participants must complete the sign-up process during this stage.**
 
+**Stage 0 requirements**
+
+Participants who have registered as Validator/Service Providers must complete Task 11 during Stage 0 to be eligible for Stage 1.
+
+Visit the [Stage 0 requirements page](/docs/stage-0-requirements.md) for details.
+
 #### Stage 1
 
 Follow [these instructions](/docs/validator-setup.md) to set up a validator node.
