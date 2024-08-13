@@ -4,6 +4,15 @@ Welcome to the Laconic Operational Ranking and Onboarding Testnet! This is a thr
 
 This repo contains the event plan and information on the tasks that must be completed to collect points.
 
+## Operator Profile
+
+The main goal of the LORO testnet is to identify qualified Service Providers to operate in the Laconic Network.
+
+You should sign up as a Validator/Service Provider if:
+* You have experience managing cloud infrastructure and cluster deployments.
+* You have experience deploying infrastructure on demand.
+* You have experience working with CI/CD app deployment pipelines.
+
 ## How to Join
 
 ### Sign up
