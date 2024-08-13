@@ -42,7 +42,7 @@ laconic-so deployment --dir laconic-console-deployment exec cli "laconic registr
 ...
 ```
 
-### Commit a bid
+### Commit a bid (not required for Stage 0)
 
 Commit a bid to the auction while its status is listed as `commit` using the auction ID. A reveal file will be generated.
 ```
@@ -52,7 +52,7 @@ laconic-so deployment --dir laconic-console-deployment exec cli "laconic registr
 {"reveal_file":"/app/out/bafyreiewi4osqyvrnljwwcb36fn6sr5iidfpuznqkz52gxc5ztt3jt4zmy.json"}
 ```
 
-### Reveal a bid
+### Reveal a bid (not required for Stage 0)
 
 Reveal a bid to the auction while its status is listed as `reveal` using the auction ID and the reveal file generated from the bid commit.
 ```
@@ -62,12 +62,14 @@ laconic-so deployment --dir laconic-console-deployment exec cli "laconic registr
 {"success": true}
 ```
 
-### Set authority
+### Verify status after the auction ends (not required for Stage 0)
 
 Query the auction after the auction ends, it should list a `completed` status and a winner.
 ```
 laconic-so deployment --dir laconic-console-deployment exec cli "laconic registry auction get 73e0b082a198c396009ce748804a9060c674a10045365d262c1584f99d2771c1"
 ```
+
+### Set authority
 
 Set the authority using a bond ID.
 ```
