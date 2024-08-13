@@ -20,6 +20,8 @@ laconic-so deployment --dir laconic-console-deployment exec cli "laconic registr
 
 ## Register an authority
 
+> Note that the Stage 0 chain does not have authority auctions enabled, so you can reserve and set an authority without going through the commit/reveal steps.
+
 ### Reserve authority
 
 Reserve the name to start the auction.
@@ -59,7 +61,6 @@ laconic-so deployment --dir laconic-console-deployment exec cli "laconic registr
 ```
 {"success": true}
 ```
-
 
 ### Set authority
 

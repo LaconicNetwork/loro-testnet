@@ -15,8 +15,6 @@ You must complete task 11 (publish a webapp) during Stage 0 to be eligible for S
   * [Instructions](/docs/instructions.md#create-a-bond)
 * Register an authority
   * [Instructions](/docs/instructions.md#register-an-authority)
-  * The Stage 0 chain does not have authority auctions enabled.
-  * You can reserve and set an authority without going through the commit/reveal steps.
 * Set up Service Provider Infrastructure
   * Use the bond ID and authority created in the previous steps.
   * [Instructions](/docs/service-provider-setup.md)
