@@ -19,7 +19,7 @@ This page will be updated if there are any adjustments to the points allocated t
 |  [13](#task-13)   | Deploy your first webapp                                  | 600        |       V       |
 |  [14](#task-14)   | Deploy webapps                                            | 3000       |       V       |
 |  [15](#task-15)   | Participate in a planned authority auction                | 100        |       V       |
-|  [16](#task-16)   | Win a planned authority auction                           | 500        |       V       |
+|  [16](#task-16)   | Win a planned authority auction                           | 50         |       V       |
 |  [17](#task-17)   | Create or improve registry monitoring                     | 1000       |       V       |
 |  [18](#task-18)   | Create or improve deployment tooling                      | 1000       |       V       |
 |  [19](#task-19)   | Write a new stack for the app publishing pipeline         | 2000       |      V,P      |
