@@ -31,7 +31,8 @@ laconic-so deployment --dir laconic-console-deployment exec cli "laconic registr
 ```
 {"success": true}
 ```
-Obtain the auction ID.
+
+### Obtain the auction ID  (not required for Stage 0)
 ```
 laconic-so deployment --dir laconic-console-deployment exec cli "laconic registry authority whois loro"
 ```
