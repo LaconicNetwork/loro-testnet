@@ -2,7 +2,7 @@
 
 ## Requirements
 
-Using Digital Ocean's droplets as reference, these are the minimum suggested specifications:
+Using DigitalOcean's droplets as reference, these are the minimum suggested specifications:
 
 - daemon (2 vCPUs, 4G RAM)
   - This host will run `laconicd`. You can set up a private testnet for testing purposes.
@@ -13,12 +13,12 @@ Using Digital Ocean's droplets as reference, these are the minimum suggested spe
 
 ## Buy a domain and configure nameservers to DO
 
-* In this example, we are using laconic.com with [nameservers pointing to Digital Ocean](https://docs.digitalocean.com/products/networking/dns/getting-started/dns-registrars/). You'll need to do the same. Integration with other providers is possible and encouraged, but requires know-how and research.
-* Generate a Digital Ocean Access Token, we will need one later.
+* In this example, we are using laconic.com with [nameservers pointing to DigitalOcean](https://docs.digitalocean.com/products/networking/dns/getting-started/dns-registrars/). You'll need to do the same. Integration with other providers is possible and encouraged, but requires know-how and research.
+* Generate a DigitalOcean Access Token, we will need one later.
 
 ## Configure DNS
 
-Point your nameservers to Digital Ocean and create the following A and CNAME records from the Digital Ocean Dashboard.
+Point your nameservers to DigitalOcean and create the following A and CNAME records from the DigitalOcean Dashboard.
  
 Like this:
 
@@ -210,7 +210,7 @@ sudo ./roles/k8s/files/scripts/get-kube-tools.sh
 support_email: hello@laconic.com
 ```
 
-17. Base64 encode your Digital Ocean token:
+17. Base64 encode your DigitalOcean token:
 
 ```
 echo dop_v1<rest of your DO token> | base64 -w 0
