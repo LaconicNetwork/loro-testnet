@@ -636,7 +636,7 @@ laconic-so deployment --dir webapp-ui start
 
 1. Fork this repo: https://github.com/LaconicNetwork/loro-testnet-example-pwa
 2. Review this file: `.github/workflows/publish.yaml`.
-3. Update both `scripts/publish-app-record.sh` and `scripts/request-app-deployment.sh` with relevant endpoints (or set the environment variables).
+3. Update `scripts/publish-app-record.sh` with relevant endpoints (or set the environment variables).
 4. Update `package.json` fields: `"name": "@my-org-name/app-name` and `"repository": "url_to_your_fork_must_be_public"`
 5. Add the envs referenced in `.github/workflows/publish.yaml`, i.e., for `privKey` and `bondId` as Secrets in GitHub Actions.
 
