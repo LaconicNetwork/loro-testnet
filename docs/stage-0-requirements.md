@@ -1,7 +1,7 @@
 # Stage 0 Requirements
 
-You must complete task 11 (publish a webapp) during Stage 0 to be eligible for Stage 1.
-* See the [How to Publish a Webapp](/docs/publishing-webapps.md) page for reference: task 11 requires this workflow to be completed.
+You must complete tasks 11 (publish an app) and 13 (deploy an app) during Stage 0 to be eligible for the Validator/Service Provider role in Stage 1.
+* See the [How to Publish a Webapp](/docs/publishing-webapps.md) page for reference: you will complete this workflow as part of Stage 0.
 
 ## Steps
 
@@ -23,6 +23,7 @@ You must complete task 11 (publish a webapp) during Stage 0 to be eligible for S
   * Modify the following variables in the `.env` file before requesting the deployment:
     * Set `CERC_TEST_WEBAPP_CONFIG1` to your account pubkey (`0x...` from the wallet app)
     * Set `CERC_TEST_WEBAPP_CONFIG2` to your account pubkey (`laconic...` from the wallet app)
+* Verify the deployment using the URL listed in the [deployer UI](/docs/service-provider-setup.md#deploy-frontend).
 
 ## Stage 0 Chain Details
 

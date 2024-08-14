@@ -630,19 +630,15 @@ laconic-so deployment --dir webapp-ui push-images
 laconic-so deployment --dir webapp-ui start
 ```
 
-1. Wait a moment then go to https://webapp-deployer-ui.pwa.laconic.com for the status and logs of each deployment.
+5. Wait a moment, then go to https://webapp-deployer-ui.pwa.laconic.com for the status and logs of each deployment.
 
 ## Deploy a test webapp
 
-1. Fork this repo: https://git.vdb.to/cerc-io/test-progressive-web-app
-
-2. Review this file: `.gitea/workflows/publish.yaml`. Change to `.github` if that's where your fork is.
-
-3. Update both `scripts/publish-app-record.sh` and `scripts/request-app-deployment.sh` with relevant endpoints (or set envs).
-
+1. Fork this repo: https://github.com/LaconicNetwork/loro-testnet-example-pwa
+2. Review this file: `.github/workflows/publish.yaml`.
+3. Update both `scripts/publish-app-record.sh` and `scripts/request-app-deployment.sh` with relevant endpoints (or set the environment variables).
 4. Update `package.json` fields: `"name": "@my-org-name/app-name` and `"repository": "url_to_your_fork_must_be_public"`
-
-5. Add the envs referenced in `.gitea/workflows/publish.yaml`, i.e., for `privKey` and `bondId` as Secrets in Gitea/GitHub Actions.
+5. Add the envs referenced in `.github/workflows/publish.yaml`, i.e., for `privKey` and `bondId` as Secrets in GitHub Actions.
 
 Now, anytime a release is created, a new set of records will be published to the Laconic Registry, and eventually picked up by the `deployer`, which will target the k8s cluster that was setup.
 

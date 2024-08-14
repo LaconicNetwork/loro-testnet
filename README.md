@@ -56,7 +56,7 @@ The testnet chain will be started through a two-staged process:
 
 **Stage 0 requirements**
 
-Participants who have registered as Validator/Service Providers must complete Task 11 during Stage 0 to be eligible for Stage 1.
+Participants who have registered as Validator/Service Providers must complete Tasks 11 and 13 during Stage 0 to be eligible for Stage 1.
 
 Visit the [Stage 0 requirements page](/docs/stage-0-requirements.md) for details.
 
