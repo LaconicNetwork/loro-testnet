@@ -141,7 +141,7 @@ The rules for participating in the LORO Testnet can be changed at any time. Chan
 
 ### Prohibited Behaviour
 
-* Any attack against a node that violates the acceptable use policy outlined by that node's cloud service provider. Please familiarize yourself with those policies (such as [Google's](https://cloud.google.com/terms/aup), [Amazon's](https://aws.amazon.com/aup/), or [Digital Ocean's](https://www.digitalocean.com/legal/acceptable-use-policy)).
+* Any attack against a node that violates the acceptable use policy outlined by that node's cloud service provider. Please familiarize yourself with those policies (such as [Google's](https://cloud.google.com/terms/aup), [Amazon's](https://aws.amazon.com/aup/), or [DigitalOcean's](https://www.digitalocean.com/legal/acceptable-use-policy)).
 * Social engineering attacks against other validators. This includes but is not limited to phishing, compromising cloud account credentials, malware, and physical security attacks on data centers.
 * Causing long-term harm to a validator setup.
 * Repeated incidents of any of the ‘[dirty dozen](https://en.wikipedia.org/wiki/The_No_Asshole_Rule#Recognition)’ social behaviours recognized by Sutton’s No Asshole Rule.
