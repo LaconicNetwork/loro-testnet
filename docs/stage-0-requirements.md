@@ -20,9 +20,9 @@ You must complete task 11 (publish a webapp) during Stage 0 to be eligible for S
   * [Instructions](/docs/service-provider-setup.md)
 * Publish an app
   * [Instructions](/docs/service-provider-setup.md#deploy-a-test-webapp)
-    * Modify the following variables in the `.env` file before requesting the deployment:
-      * Set `CERC_TEST_WEBAPP_CONFIG1` to your account pubkey (`0x...` from the wallet app)
-      * Set `CERC_TEST_WEBAPP_CONFIG2` to your account pubkey (`laconic...` from the wallet app)
+  * Modify the following variables in the `.env` file before requesting the deployment:
+    * Set `CERC_TEST_WEBAPP_CONFIG1` to your account pubkey (`0x...` from the wallet app)
+    * Set `CERC_TEST_WEBAPP_CONFIG2` to your account pubkey (`laconic...` from the wallet app)
 
 ## Stage 0 Chain Details
 
