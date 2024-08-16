@@ -625,12 +625,15 @@ laconic-so deploy-webapp create --kube-config /root/.kube/config-default.yaml --
 ```
 laconic-so deployment --dir webapp-ui push-images
 ```
-4. Start the deployer UI
+
+4. Modify `webapp-ui/config.env` like [this Pull Request](https://git.vdb.to/cerc-io/webapp-deployment-status-ui/pulls/6) but with your host details.
+
+5. Start the deployer UI
 ```
 laconic-so deployment --dir webapp-ui start
 ```
 
-5. Wait a moment, then go to https://webapp-deployer-ui.pwa.laconic.com for the status and logs of each deployment.
+6. Wait a moment, then go to https://webapp-deployer-ui.pwa.laconic.com for the status and logs of each deployment.
 
 ## Deploy a test webapp
 
