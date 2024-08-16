@@ -182,7 +182,7 @@ Note the `0AFB10B643944C22` sequence of characters.
 gpg-agent
 ```
 
-11. Run `export VAULT_KEY=password`, where `password is the passphrase used when generating the PGP key.
+11. Run `export VAULT_KEY=password`, where `password` is the passphrase used when generating the PGP key.
 
 12. Run `bash .vault/vault-rekey.sh` and enter the GPG passphrase again when prompted.
 
@@ -596,7 +596,7 @@ Modify the endpoints, user key, and bond ID according to your configuration.
 
 7. Push the image to the container registry.
 ```
-laconic-so deployment --dir webapp-deployer start
+laconic-so deployment --dir webapp-deployer push-images
 ```
 
 8. Start the deployer.
