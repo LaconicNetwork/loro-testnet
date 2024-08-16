@@ -5,16 +5,8 @@ You must complete tasks 11 (publish an app) and 13 (deploy an app) during Stage 
 
 ## Steps
 
-* Set up the `testnet-laconicd` Stack Orchestrator stack.
-  * [Instructions](https://git.vdb.to/cerc-io/testnet-laconicd-stack/src/branch/main/stack-orchestrator/stacks/testnet-laconicd/README.md)
-* Recover your account key using your the wallet mnemonic you obtained through the wallet app.
-  * `laconic-so deployment --dir testnet-laconicd-deployment exec laconicd "laconicd keys add <key-name> --recover"`
-* Set up `laconic-registry-cli` with your wallet's private key.
-  * [Instructions](https://git.vdb.to/cerc-io/testnet-laconicd-stack/src/branch/main/stack-orchestrator/stacks/testnet-laconicd/README.md#perform-operations)
-* Create a bond.
-  * [Instructions](/docs/instructions.md#create-a-bond)
-* Register an authority
-  * [Instructions](/docs/instructions.md#register-an-authority)
+* Set up a [fork of this repo](https://github.com/LaconicNetwork/loro-testnet-example-pwa/blob/main/.github/workflows/publish.yaml#L11) with your wallet's private key (exported from the Laconic Wallet).
+  * Change the `name` and `repository` fields in `package.json`.
 * Set up Service Provider Infrastructure
   * Use the bond ID and authority created in the previous steps.
   * [Instructions](/docs/service-provider-setup.md)
@@ -24,6 +16,7 @@ You must complete tasks 11 (publish an app) and 13 (deploy an app) during Stage 
     * Set `CERC_TEST_WEBAPP_CONFIG1` to your account pubkey (`0x...` from the wallet app)
     * Set `CERC_TEST_WEBAPP_CONFIG2` to your account pubkey (`laconic...` from the wallet app)
 * Verify the deployment using the URL listed in the [deployer UI](/docs/service-provider-setup.md#deploy-frontend).
+* Verify your registry records are onchain here: https://loro-console.laconic.com/#/registry
 
 ## Stage 0 Chain Details
 
