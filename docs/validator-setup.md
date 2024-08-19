@@ -3,7 +3,7 @@
 ## Chain Details
 
 * Binary repo: https://git.vdb.to/cerc-io/laconicd
-* Binary version: [v0.1.6](https://git.vdb.to/cerc-io/laconicd/src/tag/v0.1.6)
+* Binary version: [v0.1.7](https://git.vdb.to/cerc-io/laconicd/src/tag/v0.1.7)
 * Genesis file:
 * Peers: 
 
