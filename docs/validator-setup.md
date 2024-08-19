@@ -4,8 +4,8 @@
 
 * Binary repo: https://git.vdb.to/cerc-io/laconicd
 * Binary version: [v0.1.7](https://git.vdb.to/cerc-io/laconicd/src/tag/v0.1.7)
-* Genesis file:
-* Peers: 
+* Genesis file: [genesis.json](./genesis.json)
+* Peers: `"545297cafc624e0f10a0fd7c1840854bb293d3b8@laconicd.laconic.com:26656"`
 
 ## Set up a Validator in Stage 1
 
@@ -94,7 +94,7 @@
   # Comma separated list of nodes to keep persistent connections to
   # Example: "node-1-id@laconicd.laconic.com:26656"
   # Use the provided node id
-  CERC_PEERS=""
+  CERC_PEERS="545297cafc624e0f10a0fd7c1840854bb293d3b8@laconicd.laconic.com:26656"
 
   # A custom human readable name for this node (default: TestnetNode)
   CERC_MONIKER=
@@ -135,23 +135,6 @@ laconic-so deployment --dir testnet-laconicd-deployment start
   * Confirm that in the list of validators, your node moniker does not exist
 
 ### Join as testnet validator
-
-#### Using the onboarding app
-
-* Open the [wallet app](https://wallet.laconic.com/)
-* Create a validator from the onboarding app:
-  * Visit the [validator creation](https://loro-signup.laconic.com/validator) page
-    * If required, connect the onboarding app to the wallet used in Stage 0
-  * Select the Laconic account you wish to send the create validator request from (it should be the same one you used while onboarding)
-    * This should display the details of your onboarded participant
-    * You can proceed if the participant has the `validator` role
-  * Enter your node's moniker (use the same one used while [configuring](#configuration) the `testnet-laconicd-deployment`)
-  * Enter your validator's pubkey. You can obtain the pubkey with the following command:
-    ```bash
-    laconic-so deployment --dir testnet-laconicd-deployment exec laconicd "laconicd cometbft show-validator" | jq -r .key
-    ```
-  * Send the transaction request to wallet
-    * From the wallet app, approve and send transaction to the Stage 1 laconicd chain
 
 #### Using the `laconicd` CLI
 
