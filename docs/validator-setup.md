@@ -4,8 +4,8 @@
 
 * Binary repo: https://git.vdb.to/cerc-io/laconicd
 * Binary version: [v0.1.7](https://git.vdb.to/cerc-io/laconicd/src/tag/v0.1.7)
-* Genesis file:
-* Peers: 
+* Genesis file: [genesis.json](./genesis.json)
+* Peers: `"545297cafc624e0f10a0fd7c1840854bb293d3b8@laconicd.laconic.com:26656"`
 
 ## Set up a Validator in Stage 1
 
@@ -94,7 +94,7 @@
   # Comma separated list of nodes to keep persistent connections to
   # Example: "node-1-id@laconicd.laconic.com:26656"
   # Use the provided node id
-  CERC_PEERS=""
+  CERC_PEERS="545297cafc624e0f10a0fd7c1840854bb293d3b8@laconicd.laconic.com:26656"
 
   # A custom human readable name for this node (default: TestnetNode)
   CERC_MONIKER=
