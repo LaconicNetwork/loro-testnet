@@ -13,8 +13,8 @@ You must complete tasks 11 (publish an app) and 13 (deploy an app) during Stage 
 * Publish an app
   * [Instructions](/docs/service-provider-setup.md#deploy-a-test-webapp)
   * Modify the following variables in the `.env` file before requesting the deployment:
-    * Set `CERC_TEST_WEBAPP_CONFIG1` to your account pubkey (`0x...` from the wallet app)
-    * Set `CERC_TEST_WEBAPP_CONFIG2` to your account pubkey (`laconic...` from the wallet app)
+    * Set `CERC_TEST_WEBAPP_CONFIG1` to your Laconic address (`laconic...` from the wallet app)
+    * Set `CERC_TEST_WEBAPP_CONFIG2` to your Public Key (`0x...` from the wallet app)
 * Verify the deployment using the URL listed in the [deployer UI](/docs/service-provider-setup.md#deploy-frontend).
 * Verify your registry records are onchain here: https://loro-console.laconic.com/#/registry
 
