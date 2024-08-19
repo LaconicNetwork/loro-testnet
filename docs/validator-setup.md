@@ -136,23 +136,6 @@ laconic-so deployment --dir testnet-laconicd-deployment start
 
 ### Join as testnet validator
 
-#### Using the onboarding app
-
-* Open the [wallet app](https://wallet.laconic.com/)
-* Create a validator from the onboarding app:
-  * Visit the [validator creation](https://loro-signup.laconic.com/validator) page
-    * If required, connect the onboarding app to the wallet used in Stage 0
-  * Select the Laconic account you wish to send the create validator request from (it should be the same one you used while onboarding)
-    * This should display the details of your onboarded participant
-    * You can proceed if the participant has the `validator` role
-  * Enter your node's moniker (use the same one used while [configuring](#configuration) the `testnet-laconicd-deployment`)
-  * Enter your validator's pubkey. You can obtain the pubkey with the following command:
-    ```bash
-    laconic-so deployment --dir testnet-laconicd-deployment exec laconicd "laconicd cometbft show-validator" | jq -r .key
-    ```
-  * Send the transaction request to wallet
-    * From the wallet app, approve and send transaction to the Stage 1 laconicd chain
-
 #### Using the `laconicd` CLI
 
 * Import a key pair:
