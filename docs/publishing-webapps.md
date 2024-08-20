@@ -1,6 +1,15 @@
 # How to Publish a Webapp
 
-This is a reference workflow for publishing a webapp through a Laconic chain:
+## Getting Started
+
+1. Fork [this repo](https://github.com/LaconicNetwork/loro-testnet-example-pwa).
+2. Set your private key as the env `CICD_LACONIC_USER_KEY` in Settings -> Secrets -> Actions
+3. Modify the `"name":` and `"repository":` fields, then commit.
+4. The commit should trigger an Action and publish an ApplicationRecord and ApplicationDeploymentRequest to the chain.
+
+## Reference Workflow
+
+This is a reference workflow for publishing and deploying a webapp using the Laconic Registry:
 
 1. Upload the code to the webapp to a public repo.
 2. Set up Service Provider infrastructure.
