@@ -49,7 +49,7 @@ Sign as many blocks as possible
 ## Task 3
 Create a bond - [instructions](/docs/instructions.md#create-a-bond)
 * A bond will allow you to register records on chain.
-* You will be awarded 4 points for each of the first 10 bonds you create, for a maximum of 10 points.
+* You will be awarded 4 points for each of the first 10 bonds you create, for a maximum of 40 points.
 
 ## Task 4
 Register an authority - [instructions](/docs/instructions.md#register-an-authority)
