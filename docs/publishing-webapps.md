@@ -4,25 +4,32 @@
 
 1. Fork [this repo](https://github.com/LaconicNetwork/loro-testnet-example-pwa).
 2. Set your private key as the env `CICD_LACONIC_USER_KEY` in Settings -> Secrets -> Actions
-3. Modify the `"name":` and `"repository":` fields, then commit.
-4. The commit should trigger an Action and publish an ApplicationRecord and ApplicationDeploymentRequest to the chain.
+3. Register and set a name authority; see [instructions](./instructions.md#register-an-authority)
+4. Modify the `"name":` and `"repository":` fields, then commit.
+5. The commit should trigger an Action and publish an ApplicationRecord and ApplicationDeploymentRequest to the chain.
 
 ## Reference Workflow
 
 This is a reference workflow for publishing and deploying a webapp using the Laconic Registry:
 
-1. Upload the code to the webapp to a public repo.
-2. Set up Service Provider infrastructure.
-3. [On-chain] Register an Authority.
-4. [On-chain] Register an Application Record and corresponding name.
-5. [On-chain] Register an Application Deployment Request.
-6. Deploy the app using the data from the deployment request.
-7. [On-chain] Register a DNS Record and corresponding name.
-8. [On-chain] Register an Application Deployment Record and corresponding name.
-
 [![Webapp publishing workflow diagram](/images/webapp-publishing-workflow.jpg)](/images/webapp-publishing-workflow.jpg)
 
-## Example Workflow Walkthrough
+### For app publishers
+
+1. Upload the code to the webapp to a public repo.
+2. [On-chain] Register an Authority.
+3. [On-chain] Register an Application Record and corresponding name.
+4. [On-chain] Register an Application Deployment Request.
+
+### For service providers
+
+1. Set up Service Provider infrastructure.
+2. Deploy the app using the data from the Application Deployment Request.
+3. [On-chain] Register a DNS Record and corresponding name.
+4. [On-chain] Register an Application Deployment Record and corresponding name.
+
+
+## Example of the entire workflow
 
 The following steps will provide sample commands and records for an example app being published:
 

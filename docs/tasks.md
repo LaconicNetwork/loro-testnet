@@ -2,30 +2,31 @@
 
 This page will be updated if there are any adjustments to the points allocated to each task or the tasks themselves.
 
-|        ID         | Task                                                      | Max Points | Validator/Service Provider | App Publisher |
-| :---------------: | :-------------------------------------------------------- | :--------- | :------------------------: | :-----------: |
-|   [1](#task-1)    | Run a validator                                           | 400        |             ✅              |               |
-|   [2](#task-2)    | Sign as many blocks as possible                           | 100        |             ✅              |               |
-|   [3](#task-3)    | Create a bond                                             | 40         |             ✅              |       ✅       |
-|   [4](#task-4)    | Register an authority                                     | 50         |             ✅              |       ✅       |
-|   [5](#task-5)    | Register a name                                           | 60         |             ✅              |       ✅       |
-| [6](#tasks-6-10)  | Register an application record                            | 40         |             ✅              |       ✅       |
-| [7](#tasks-6-10)  | Register an application deployment request record         | 40         |             ✅              |       ✅       |
-| [8](#tasks-6-10)  | Register a DNS record                                     | 40         |             ✅              |               |
-| [9](#tasks-6-10)  | Register an application deployment record                 | 40         |             ✅              |               |
-| [10](#tasks-6-10) | Register an application deployment removal request record | 40         |             ✅              |       ✅       |
-|  [11](#task-11)   | Publish a webapp                                          | 50         |             ✅              |       ✅       |
-|  [12](#task-12)   | Publish a non-reference webapp                            | 300        |             ✅              |       ✅       |
-|  [13](#task-13)   | Deploy your first webapp                                  | 600        |             ✅              |               |
-|  [14](#task-14)   | Deploy webapps                                            | 3000       |             ✅              |               |
-|  [15](#task-15)   | Participate in a planned authority auction                | 100        |             ✅              |               |
-|  [16](#task-16)   | Win a planned authority auction                           | 500        |             ✅              |               |
-|  [17](#task-17)   | Create or improve registry monitoring                     | 1000       |             ✅              |               |
-|  [18](#task-18)   | Create or improve deployment tooling                      | 1000       |             ✅              |               |
-|  [19](#task-19)   | Write a new stack for the app publishing pipeline         | 2000       |             ✅              |       ✅       |
-|  [20](#task-20)   | Provide the most assistance to other participants         | 100        |             ✅              |       ✅       |
+|        ID         | Task                                                      | Max Points | Validator  | Service Provider  | App Publisher |
+| :---------------: | :-------------------------------------------------------- | :--------- | :-------:  |:---------------:  | :-----------: |
+|   [1](#task-1)    | Run a validator                                           | 400        |     ✅     |                   |               |
+|   [2](#task-2)    | Sign as many blocks as possible                           | 100        |     ✅     |                   |               |
+|   [3](#task-3)    | Create a bond                                             | 40         |            |        ✅         |       ✅      |
+|   [4](#task-4)    | Register an authority                                     | 50         |            |        ✅         |       ✅      |
+|   [5](#task-5)    | Register a name                                           | 60         |            |        ✅         |       ✅      |
+| [6](#tasks-6-10)  | Register an application record                            | 40         |            |        ✅         |       ✅      |
+| [7](#tasks-6-10)  | Register an application deployment request record         | 40         |            |        ✅         |       ✅      |
+| [8](#tasks-6-10)  | Register a DNS record                                     | 40         |            |        ✅         |               |
+| [9](#tasks-6-10)  | Register an application deployment record                 | 40         |            |        ✅         |               |
+| [10](#tasks-6-10) | Register an application deployment removal request record | 40         |            |        ✅         |       ✅      |
+|  [11](#task-11)   | Publish a webapp                                          | 50         |            |        ✅         |       ✅      |
+|  [12](#task-12)   | Publish a non-reference webapp                            | 300        |            |        ✅         |       ✅      |
+|  [13](#task-13)   | Deploy your first webapp                                  | 600        |            |        ✅         |               |
+|  [14](#task-14)   | Deploy webapps                                            | 3000       |            |        ✅         |               |
+|  [15](#task-15)   | Participate in a planned authority auction                | 100        |            |        ✅         |       ✅      |
+|  [16](#task-16)   | Win a planned authority auction                           | 500        |            |        ✅         |       ✅      |
+|  [17](#task-17)   | Create or improve registry monitoring                     | 1000       |            |        ✅         |               |
+|  [18](#task-18)   | Create or improve deployment tooling                      | 1000       |            |        ✅         |               |
+|  [19](#task-19)   | Write a new stack for the app publishing pipeline         | 2000       |            |        ✅         |       ✅      |
+|  [20](#task-20)   | Provide assistance to other participants                  | 1000       |            |        ✅         |       ✅      |
+|  [21](#task-21)   | Publish a webapp from the testnet coordinator wishlist    | 500        |            |        ✅         |       ✅      |
 
-* The two columns on the right show which tasks can be claimed depending on a participant's role.
+* The three columns on the right show which tasks can be claimed depending on a participant's role.
 
 ## Prerequisites
 
@@ -152,5 +153,12 @@ Write a new stack for the app publishing pipeline.
 ## Task 20
 * Provide assistance to other participants.
 * Providing assistance (e.g. operational guidance and onboarding support) to other participants in Discord will be considered for point awards.
-* A maximum of 100 points will be awarded to each participant that contributes towards making this testnet a smooth and positive experience.
+* A maximum of 1000 points will be awarded to each participant that contributes towards making this testnet a smooth and positive experience.
 * Notable participation efforts will be evaluated by testnet coordinators and the Laconic team.
+
+## Task 21
+* Publish a non-reference webapp on the testnet coordinator wishlist.
+* The first participant to publish any of the webapps on the following list will earn 500 points per webapp:
+
+1. https://github.com/DarkFlorist/Horswap
+2. https://github.com/osmosis-labs/osmosis-frontend
