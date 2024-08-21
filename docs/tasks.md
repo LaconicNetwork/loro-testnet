@@ -24,6 +24,7 @@ This page will be updated if there are any adjustments to the points allocated t
 |  [18](#task-18)   | Create or improve deployment tooling                      | 1000       |             ✅              |               |
 |  [19](#task-19)   | Write a new stack for the app publishing pipeline         | 2000       |             ✅              |       ✅       |
 |  [20](#task-20)   | Provide the most assistance to other participants         | 100        |             ✅              |       ✅       |
+|  [21](#task-21)   | Publish a webapp from the LORO webapp wishlist            | 1000       |             ✅              |       ✅       |
 
 * The two columns on the right show which tasks can be claimed depending on a participant's role.
 
@@ -150,7 +151,21 @@ Write a new stack for the app publishing pipeline.
 * Open a pull request in this repository to notify testnet coordinators you have developed a new working stack.
 
 ## Task 20
-* Provide assistance to other participants.
+Provide assistance to other participants.
 * Providing assistance (e.g. operational guidance and onboarding support) to other participants in Discord will be considered for point awards.
 * A maximum of 100 points will be awarded to each participant that contributes towards making this testnet a smooth and positive experience.
 * Notable participation efforts will be evaluated by testnet coordinators and the Laconic team.
+
+## Task 21
+* Publish a webapp from the LORO webapp wishlist (see below).
+* This task will be considered complete when it meets the following criteria:
+  * An Application Deployment Request is registered.
+  * The Application Record includes a `wishlist` tag.
+  * The application can be verified using the URL from the Application Deployment Record.
+  * Testnet coordinators confirm that the deployed app is in the wishlist.
+* For each webapp, the **first participant to publish it** will receive 500 points.
+
+### LORO Webapp Wishlist
+
+1. https://github.com/DarkFlorist/Horswap
+2. https://github.com/osmosis-labs/osmosis-frontend
