@@ -298,7 +298,7 @@ cert-manager    letsencrypt-prod-wild-prviate-key           Opaque              
 default         pwa.laconic.com-lsnz4                       Opaque              1      3m3s
 ingress-nginx   ingress-nginx-admission                     Opaque              3      3m13s
 kube-system     k3s-serving                                 kubernetes.io/tls   2      28m
-kube-system     tnt-cad-cluster-control.node-password.k3s   Opaque              1      28m
+kube-system     lcn-cad-cluster-control.node-password.k3s   Opaque              1      28m
 ```
 
 ```
@@ -515,7 +515,7 @@ laconic-so --stack webapp-deployer-backend deploy init --output webapp-deployer.
 ```
 stack: webapp-deployer-backend
 deploy-to: k8s
-kube-config: /home/so/.kube/config-default.yaml
+kube-config: /root/.kube/config-default.yaml
 image-registry: container-registry.pwa.laconic.com/laconic-registry
 network:
   ports:
@@ -589,7 +589,7 @@ services:
     userKey: e64ae9d07b21c62081b3d6d48e78bf44275ffe0575f788ea7b36f71ea559724b
     bondId: ad9c977f4a641c2cf26ce37dcc9d9eb95325e9f317aee6c9f33388cdd8f2abb8
     chainId: lorotestnet-1
-    gas: 9950000
+    gas: 995000
     fees: 500000alnt
 ```
 Modify the endpoints, user key, and bond ID according to your configuration.
