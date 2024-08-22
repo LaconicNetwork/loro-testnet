@@ -18,8 +18,8 @@ This page will be updated if there are any adjustments to the points allocated t
 |  [12](#task-12)   | Publish a non-reference webapp                            | 300        |             ✅              |       ✅       |
 |  [13](#task-13)   | Deploy your first webapp                                  | 600        |             ✅              |               |
 |  [14](#task-14)   | Deploy webapps                                            | 3000       |             ✅              |               |
-|  [15](#task-15)   | Participate in a planned authority auction                | 100        |             ✅              |               |
-|  [16](#task-16)   | Win a planned authority auction                           | 500        |             ✅              |               |
+|  [15](#task-15)   | Participate in a planned authority auction                | 100        |             ✅              |      ✅        |
+|  [16](#task-16)   | Win a planned authority auction                           | 500        |             ✅              |      ✅        |
 |  [17](#task-17)   | Create or improve registry monitoring                     | 1000       |             ✅              |               |
 |  [18](#task-18)   | Create or improve deployment tooling                      | 1000       |             ✅              |               |
 |  [19](#task-19)   | Write a new stack for the app publishing pipeline         | 2000       |             ✅              |       ✅       |
