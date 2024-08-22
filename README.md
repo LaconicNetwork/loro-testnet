@@ -102,6 +102,7 @@ After the testnet concludes, the participants will be ranked according to the ta
 
 ### Week 2
 * Participants continue to publish and deploy apps
+* Planned authority auctions take place
 
 ### Week 3
 * Planned authority auctions take place
