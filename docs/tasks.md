@@ -23,10 +23,16 @@ This page will be updated if there are any adjustments to the points allocated t
 |  [17](#task-17)   | Create or improve registry monitoring                     | 1000       |             ✅              |               |
 |  [18](#task-18)   | Create or improve deployment tooling                      | 1000       |             ✅              |               |
 |  [19](#task-19)   | Write a new stack for the app publishing pipeline         | 2000       |             ✅              |       ✅       |
-|  [20](#task-20)   | Provide the most assistance to other participants         | 100        |             ✅              |       ✅       |
+|  [20](#task-20)   | Provide the most assistance to other participants         | 1000       |             ✅              |       ✅       |
 |  [21](#task-21)   | Publish a webapp from the LORO webapp wishlist            | 1000       |             ✅              |       ✅       |
 
 * The two columns on the right show which tasks can be claimed depending on a participant's role.
+
+## Task Changelog
+
+* Aug 22
+  * Add task 21: publish a webapp from the LORO webapp wishlist
+  * Bump max points for task 20 to 1000
 
 ## Prerequisites
 
@@ -126,7 +132,7 @@ Participate in a planned authority auction - [instructions](/docs/instructions.m
 Win a planned authority auction - [instructions](/docs/instructions.md#register-an-authority)
 * You must win a planned authority auction and register the corresponding authority.
 * Testnet coordinators will announce when a planned authority auction will take place.
-* This task will be considered complete when the authority is registered.
+* This task will be considered complete when the authority is [set with a bond ID](/docs/instructions.md#set-authority).
 * You will be awarded 50 points for each auction you win, for a maximum of 500 points.
 
 ## Task 17
@@ -153,7 +159,7 @@ Write a new stack for the app publishing pipeline.
 ## Task 20
 Provide assistance to other participants.
 * Providing assistance (e.g. operational guidance and onboarding support) to other participants in Discord will be considered for point awards.
-* A maximum of 100 points will be awarded to each participant that contributes towards making this testnet a smooth and positive experience.
+* A maximum of 1000 points will be awarded to each participant that contributes towards making this testnet a smooth and positive experience.
 * Notable participation efforts will be evaluated by testnet coordinators and the Laconic team.
 
 ## Task 21
