@@ -149,6 +149,11 @@ Create or improve registry monitoring.
 * A maximum of 1000 points will be awarded to each participant.
 * Open a pull request in this repository to notify testnet coordinators you have a contribution you would like to be considered.
 
+### Laconic Registry Leaderboard
+- Code: https://github.com/BlackBlocks-io/Laconic-Registry-Leaderboard
+- Demo: https://blackblocks.io/laconic-registry-leaderboard/
+- Demo: https://laconic-registry-leaderboard-4667880952.pwa.laconic.blackblocks.io/
+
 ## Task 19
 Write a new stack for the app publishing pipeline.
 * You must publish code and a demo for a deployment stack that does not exist yet: examples include deployer code for non-npm web apps, or an interactive app deployment dashboard.
