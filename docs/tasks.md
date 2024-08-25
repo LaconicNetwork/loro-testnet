@@ -142,6 +142,10 @@ Create or improve deployment tooling.
 * A maximum of 1000 points will be awarded to each participant.
 * Open a pull request in this repository to notify testnet coordinators you have a contribution you would like to be considered.
 
+### Laconicman
+- Code: https://github.com/BlackBlocks-io/laconicman
+- Demo: https://github.com/BlackBlocks-io/laconicman?tab=readme-ov-file#screenshots
+  
 ## Task 18
 Create or improve registry monitoring.
 * You must publish code and a demo for a tool you created or contributed to in order to improve registry monitoring.
