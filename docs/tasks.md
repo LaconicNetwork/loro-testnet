@@ -173,5 +173,5 @@ Provide assistance to other participants.
 
 ### LORO Webapp Wishlist
 
-1. https://github.com/osmosis-labs/osmosis-frontend
+1. ~~https://github.com/osmosis-labs/osmosis-frontend~~ (claimed)
 2. ~~https://github.com/DarkFlorist/Horswap~~ (claimed)
