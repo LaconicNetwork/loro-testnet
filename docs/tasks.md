@@ -165,6 +165,10 @@ Write a new stack for the app publishing pipeline.
 * A maximum of 2000 points will be awarded to each participant.
 * Open a pull request in this repository to notify testnet coordinators you have developed a new working stack.
 
+### Celestia-node stack
+- Code: https://github.com/BlackBlocks-io/stack-orchestrator/commit/e8b91e601b41192f30733f1b3f60c3fc7eb3e47b
+- Demo: https://github.com/BlackBlocks-io/stack-orchestrator/commit/e8b91e601b41192f30733f1b3f60c3fc7eb3e47b#commitcomment-145918265
+
 ## Task 20
 Provide assistance to other participants.
 * Providing assistance (e.g. operational guidance and onboarding support) to other participants in Discord will be considered for point awards.
