@@ -33,6 +33,9 @@ This page will be updated if there are any adjustments to the points allocated t
 * Aug 22
   * Add task 21: publish a webapp from the LORO webapp wishlist
   * Bump max points for task 20 to 1000
+* Aug 28
+  * Add otterscan to webapp wishlist
+  * Bump max points for task 21 to 1500
 
 ## Prerequisites
 
