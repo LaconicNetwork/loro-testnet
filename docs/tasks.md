@@ -24,7 +24,7 @@ This page will be updated if there are any adjustments to the points allocated t
 |  [18](#task-18)   | Create or improve deployment tooling                      | 1000       |             ✅              |               |
 |  [19](#task-19)   | Write a new stack for the app publishing pipeline         | 2000       |             ✅              |       ✅       |
 |  [20](#task-20)   | Provide the most assistance to other participants         | 1000       |             ✅              |       ✅       |
-|  [21](#task-21)   | Publish a webapp from the LORO webapp wishlist            | 1000       |             ✅              |       ✅       |
+|  [21](#task-21)   | Publish a webapp from the LORO webapp wishlist            | 1500       |             ✅              |       ✅       |
 
 * The two columns on the right show which tasks can be claimed depending on a participant's role.
 
@@ -175,3 +175,4 @@ Provide assistance to other participants.
 
 1. ~~https://github.com/osmosis-labs/osmosis-frontend~~ (claimed)
 2. ~~https://github.com/DarkFlorist/Horswap~~ (claimed)
+3. https://github.com/otterscan/otterscan
