@@ -178,4 +178,4 @@ Provide assistance to other participants.
 
 1. ~~https://github.com/osmosis-labs/osmosis-frontend~~ (claimed)
 2. ~~https://github.com/DarkFlorist/Horswap~~ (claimed)
-3. https://github.com/otterscan/otterscan
+3. ~~https://github.com/otterscan/otterscan~~ (claimed)
