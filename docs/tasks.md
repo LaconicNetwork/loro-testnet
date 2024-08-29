@@ -183,6 +183,10 @@ Provide assistance to other participants.
 
 ## Task 22
 * Create and host an app store that displays the available webapps on the Laconic Registry.
-* It should display styled ApplicationRecords with some relevant info; when clicked on they present more info along with;
-* A list of deployed URLs deployed by Service Providers (only display if they pass a healthcheck)
+* It must display styled ApplicationRecords with relevant app information.
+* When an ApplicationRecord is clicked, the site must display a list of URLs deployed by Service Providers.
+  * Each URL must have passed a health check to be shown.
+* Claims will be evaluated by testnet coordinators and the Laconic team.
+* A maximum of 1000 points will be awarded to each participant.
+* Open a pull request in this repository to notify testnet coordinators your site is ready for review.
 
