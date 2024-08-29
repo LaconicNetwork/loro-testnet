@@ -25,6 +25,7 @@ This page will be updated if there are any adjustments to the points allocated t
 |  [19](#task-19)   | Write a new stack for the app publishing pipeline         | 2000       |             ✅              |       ✅       |
 |  [20](#task-20)   | Provide the most assistance to other participants         | 1000       |             ✅              |       ✅       |
 |  [21](#task-21)   | Publish a webapp from the LORO webapp wishlist            | 1500       |             ✅              |       ✅       |
+|  [22](#task-22)   | Create an app store to display available webapps          | 1000       |             ✅              |       ✅       |
 
 * The two columns on the right show which tasks can be claimed depending on a participant's role.
 
@@ -179,3 +180,13 @@ Provide assistance to other participants.
 1. ~~https://github.com/osmosis-labs/osmosis-frontend~~ (claimed)
 2. ~~https://github.com/DarkFlorist/Horswap~~ (claimed)
 3. ~~https://github.com/otterscan/otterscan~~ (claimed)
+
+## Task 22
+* Create and host an app store that displays the available webapps on the Laconic Registry.
+* It must display styled ApplicationRecords with relevant app information.
+* When an ApplicationRecord is clicked, the site must display a list of URLs deployed by Service Providers.
+  * Each URL must have passed a health check to be shown.
+* Claims will be evaluated by testnet coordinators and the Laconic team.
+* A maximum of 1000 points will be awarded to each participant.
+* Open a pull request in this repository to notify testnet coordinators your site is ready for review.
+
