@@ -189,4 +189,7 @@ Provide assistance to other participants.
 * Claims will be evaluated by testnet coordinators and the Laconic team.
 * A maximum of 1000 points will be awarded to each participant.
 * Open a pull request in this repository to notify testnet coordinators your site is ready for review.
+### Laconic-Applications-UI
+- Code: https://github.com/silentnoname/Laconic-Applications-UI
+- Demo: https://laconic-ui.vercel.app/ or https://laconic-apps-ui-c688e77922.pwa.wavefive.app
 
