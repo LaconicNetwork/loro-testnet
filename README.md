@@ -1,3 +1,22 @@
+## Summary
+
+* The Laconic Operational Ranking and Onboarding (LORO) Testnet ran between August 12 and August 30, 2024.
+* The LORO Testnet was designed and operated by [Hypha Worker Co-op](https://hypha.coop/) in collaboration with [Laconic](https://www.laconic.com/).
+
+### Participation Overview
+
+|                               |       |
+| :---------------------------- | ----: |
+| Accounts tracked              |  5353 |
+| Validators created            |    85 |
+| Operational Service Providers |    45 |
+| Bonds created                 |  1948 |
+| Authorities registered        |   975 |
+| Records registered            | 24865 |
+| App URLs registered           |  2076 |
+| Apps deployed                 |  1699 |
+|                               |       |
+
 # LORO Testnet 🦜
 
 Welcome to the Laconic Operational Ranking and Onboarding Testnet! This is a three-week incentivized testnet program that will onboard and assess participants interested in joining the [Laconic Network](https://laconic.com/).
@@ -21,22 +40,22 @@ You must follow a sign-up process regardless of whether you are participating as
 
 Open the [wallet](https://wallet.laconic.com/) and [onboarding](https://loro-signup.laconic.com/) apps in separate tabs and follow the steps below.
 
-| Wallet app |  Onboarding app  |
-|:----|:----|
-| Click on `Create wallet`* | |
-|   | Accept the Terms and Conditions  |
-|   | Verify your email adddress |
-|    | Click on `Connect wallet` |
-|    | Click the top-right icon of the WalletConnect dialog to copy the URI |
-|  Click the top-right icon of the page |   |
-|  Click on `Pair` and paste the URI |  |
-|  | Select the Laconic and Nitro accounts from your wallet |
-|  | Sign using the Nitro key  |
-| Approve the sign request | |
-| | Select your role |  
-|  | Click the `Request tokens from faucet` button** |
-| | Send transaction request to the wallet |
-| Approve and send transaction | |
+| Wallet app                           | Onboarding app                                                       |
+| :----------------------------------- | :------------------------------------------------------------------- |
+| Click on `Create wallet`*            |                                                                      |
+|                                      | Accept the Terms and Conditions                                      |
+|                                      | Verify your email adddress                                           |
+|                                      | Click on `Connect wallet`                                            |
+|                                      | Click the top-right icon of the WalletConnect dialog to copy the URI |
+| Click the top-right icon of the page |                                                                      |
+| Click on `Pair` and paste the URI    |                                                                      |
+|                                      | Select the Laconic and Nitro accounts from your wallet               |
+|                                      | Sign using the Nitro key                                             |
+| Approve the sign request             |                                                                      |
+|                                      | Select your role                                                     |
+|                                      | Click the `Request tokens from faucet` button**                      |
+|                                      | Send transaction request to the wallet                               |
+| Approve and send transaction         |                                                                      |
 
 **\* Save the mnemonic in a safe place.**  
 \** Ensure the displayed balance is updated.
