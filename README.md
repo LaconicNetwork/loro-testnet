@@ -15,7 +15,6 @@
 | Records registered            | 24865 |
 | App URLs registered           |  2076 |
 | Apps deployed                 |  1699 |
-|                               |       |
 
 # LORO Testnet 🦜
 
