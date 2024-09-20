@@ -146,6 +146,10 @@ Create or improve deployment tooling.
 * A maximum of 1000 points will be awarded to each participant.
 * Open a pull request in this repository to notify testnet coordinators you have a contribution you would like to be considered.
 
+### Laconicman
+- Code: https://github.com/BlackBlocks-io/laconicman
+- Demo: https://github.com/BlackBlocks-io/laconicman?tab=readme-ov-file#screenshots
+  
 ## Task 18
 Create or improve registry monitoring.
 * You must publish code and a demo for a tool you created or contributed to in order to improve registry monitoring.
@@ -153,12 +157,21 @@ Create or improve registry monitoring.
 * A maximum of 1000 points will be awarded to each participant.
 * Open a pull request in this repository to notify testnet coordinators you have a contribution you would like to be considered.
 
+### Laconic Registry Leaderboard
+- Code: https://github.com/BlackBlocks-io/Laconic-Registry-Leaderboard
+- Demo: https://blackblocks.io/laconic-registry-leaderboard/
+- Demo: https://laconic-registry-leaderboard-4667880952.pwa.laconic.blackblocks.io/
+
 ## Task 19
 Write a new stack for the app publishing pipeline.
 * You must publish code and a demo for a deployment stack that does not exist yet: examples include deployer code for non-npm web apps, or an interactive app deployment dashboard.
 * Claims will be evaluated by testnet coordinators and the Laconic team.
 * A maximum of 2000 points will be awarded to each participant.
 * Open a pull request in this repository to notify testnet coordinators you have developed a new working stack.
+
+### Celestia-node stack
+- Code: https://github.com/BlackBlocks-io/stack-orchestrator/commit/e8b91e601b41192f30733f1b3f60c3fc7eb3e47b
+- Demo: https://github.com/BlackBlocks-io/stack-orchestrator/commit/e8b91e601b41192f30733f1b3f60c3fc7eb3e47b#commitcomment-145918265
 
 ## Task 20
 Provide assistance to other participants.
