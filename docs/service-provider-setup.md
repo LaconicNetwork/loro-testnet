@@ -640,8 +640,9 @@ Publishing records to the Laconic Registry will trigger deployments in your back
 kubectl get pods --sort-by=.metadata.creationTimestamp -o jsonpath='{.items[-1].metadata.name}'
 # laconic-ac473c31db9ac9fd-deployment-674bf7bf9f-529bs
 
-# Copy the GPG key file to the pod
+# Copy GPG key files to the pod
 kubectl cp gpg-keys/webapp-deployer-api.laconic.com.pgp.key laconic-ac473c31db9ac9fd-deployment-674bf7bf9f-529bs:/app
+kubectl cp gpg-keys/webapp-deployer-api.laconic.com.pgp.pub laconic-ac473c31db9ac9fd-deployment-674bf7bf9f-529bs:/app
 ```
 * Replace `laconic.com` with your configured domain
 
