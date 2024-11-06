@@ -36,7 +36,7 @@ The second incentivized testnet offically begins on Monday September 23rd @ 17:0
 
 * Deploy ping-pub with a fix to see all transactions - [link](https://git.vdb.to/cerc-io/cosmos-explorer)
 
-## Bonus points
+## Bonus points (Task 6)
 
 * Arbitrary bonuses will be allocated for outstanding contributions and rapid turnaround on Tasks 1 & 2.
 * If you are reading this, the second testnet has unofficially begun ;)
