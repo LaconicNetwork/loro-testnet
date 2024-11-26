@@ -59,6 +59,8 @@ The second incentivized testnet offically begins on Monday September 23rd @ 17:0
     * 1-to-1 usage a single user connects to a single ollama instance
     * 1-to-many: multiple user connect to the same ollama instance
     * Use the [default Ollama docker image](https://hub.docker.com/r/ollama/ollama)
+ 
+Note: functionality for payment to your Ollama node when service is requested by users will soon be implemented via the Laconic Store → Deployer workflow that is used for deploying webapps.
 
 ## Task 9 - Leaderboard Accounting
 
