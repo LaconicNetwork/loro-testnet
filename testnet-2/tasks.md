@@ -36,6 +36,40 @@ The second incentivized testnet offically begins on Monday September 23rd @ 17:0
 
 * Deploy ping-pub with a fix to see all transactions - [link](https://git.vdb.to/cerc-io/cosmos-explorer)
 
+## Task 6 - Host additional services
+
+* 100 points for an explorer (claimed)
+* 500 points for Blast (allocated, transfered to Task 7)
+
+## Task 7 - Host DIN Services
+
+* Deploy and register an “RpcNodeDeploymentRecord” for:
+    * [Blast](https://docs.blast.io/tools/node-providers#how-to-run-your-own-nodes) - 500 points
+    * [zkSync](https://docs.zksync.io/zksync-node/running-node) - 500 points
+* This task may be eligible for recurring USD payment (in addition to LNT)
+* Bonus points for making a “stack” for each service to contracted Service Providers
+* Until our decentralized solution to load balancing is completed (i.e., “Watcher Parties”), we will run caddy proxies at blast.rpc.laconic.com and zksync.rpc.laconic.com
+* Laconic is a founding member of DIN. We would like to announce that “Laconic Network Service Providers are running RPC infrastructure for DIN”
+
+## Task 8 - Host Ollama
+
+* Deploy and register an "LLMDeploymentRecord" for:
+    * [Ollama](https://github.com/ollama/ollama)
+* Bonus: create a stack that allows for two modes of usage:
+    * 1-to-1 usage a single user connects to a single ollama instance
+    * 1-to-many: multiple user connect to the same ollama instance
+    * Use the [default Ollama docker image](https://hub.docker.com/r/ollama/ollama)
+* 500 points
+ 
+Note: functionality for payment to your Ollama node when service is requested by users will soon be implemented via the Laconic Store → Deployer workflow that is used for deploying webapps.
+
+## Task 9 - Leaderboard Accounting
+
+* The current testnet 2 tally was created manually and does not necessarily include all contributions / efforts since the end of testnet 1.
+* This task is to provide an automated script to tally any and all outstanding contributions that are not accounted for [here](https://github.com/LaconicNetwork/loro-testnet/pull/60).
+* 500 points
+
+
 ## Bonus points
 
 * Arbitrary bonuses will be allocated for outstanding contributions and rapid turnaround on Tasks 1 & 2.
