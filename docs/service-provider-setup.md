@@ -19,7 +19,7 @@ Using DigitalOcean's droplets as reference, these are the minimum suggested spec
 ## Configure DNS
 
 Point your nameservers to DigitalOcean and create the following A and CNAME records from the DigitalOcean Dashboard.
- 
+
 Like this:
 
 |  Type  |            Hostname                  |            Value                     |
@@ -63,7 +63,7 @@ apt update && apt upgrade -y
 3. Install additional packages.
 
 ```
-apt install -y doas zsh tmux git jq acl curl wget netcat-traditional fping rsync htop iotop iftop tar less firewalld sshguard wireguard iproute2 iperf3 zfsutils-linux net-tools ca-certificates gnupg sshpass
+apt install -y doas zsh tmux git jq acl curl wget netcat-traditional fping rsync htop iotop iftop tar less firewalld sshguard wireguard iproute2 iperf3 zfsutils-linux net-tools ca-certificates gnupg sshpass apache2-utils
 ```
 
 Select "Yes" when prompted for iperf3.
@@ -233,8 +233,8 @@ metadata:
   namespace: cert-manager
 ```
 
-19.  Remove the `./group_vars/lcn_cad/k8s-vault.yml` file. 
-  
+19.  Remove the `./group_vars/lcn_cad/k8s-vault.yml` file.
+
 ```
 rm ./group_vars/lcn_cad/k8s-vault.yml
 ```
@@ -333,7 +333,7 @@ ansible-vault encrypt path/to/file.yaml
 
 and the result overwrites the original file with the encrypted version.
 
-To decrypt that file, run: 
+To decrypt that file, run:
 
 ```
 echo 'content-of-the-file' | ansible-vault decrypt
@@ -448,19 +448,19 @@ kubectl create secret generic laconic-registry --from-file=.dockerconfigjson=con
 laconic-so deployment --dir container-registry start
 ```
 
-6. Check the logs.
+8. Check the logs.
 
 ```
 laconic-so deployment --dir container-registry logs
 ```
 
-7. Check status and await succesful deployment:
+9. Check status and await succesful deployment:
 
 ```
 laconic-so deployment --dir container-registry status
 ```
 
-8. Confirm deployment by logging in:
+10. Confirm deployment by logging in:
 
 ```
 docker login container-registry.pwa.laconic.com --username so-reg-user --password pXDwO5zLU7M88x3aA
@@ -520,14 +520,14 @@ image-registry: container-registry.pwa.laconic.com/laconic-registry
 network:
   ports:
     server:
-     - '9555'
+      - '9555'
   http-proxy:
     - host-name: webapp-deployer-api.pwa.laconic.com
       routes:
         - path: '/'
           proxy-to: server:9555
 volumes:
-  srv: 
+  srv:
 configmaps:
   config: ./data/config
 annotations:
@@ -554,7 +554,40 @@ resources:
 ```
 laconic-so --stack webapp-deployer-backend deploy create --deployment-dir webapp-deployer --spec-file webapp-deployer.spec
 ```
-4. Modify the contents of `webapp-deployer/config.env`:
+
+4. Copy `~/.kube/config-default.yaml` from the k8s cluster creation step to `webapp-deployer/data/config/kube.yml`
+5. Create `webapp-deployer/data/config/laconic.yml`, it should look like this:
+```
+services:
+  registry:
+    rpcEndpoint: 'https://lcn-daemon.laconic.com:26657'
+    gqlEndpoint: 'https://lcn-daemon.laconic.com:9473/api'
+    userKey: e64ae9d07b21c62081b3d6d48e78bf44275ffe0575f788ea7b36f71ea559724b
+    bondId: ad9c977f4a641c2cf26ce37dcc9d9eb95325e9f317aee6c9f33388cdd8f2abb8
+    chainId: lorotestnet-1
+    gas: 200000
+    fees: 500000alnt
+```
+Modify the endpoints, user key, and bond ID according to your configuration.
+
+6. Publish a `WebappDeployer` record for the deployer backend by following the steps below:
+
+* Setup GPG keys by following [these steps to create and export a key](https://git.vdb.to/cerc-io/webapp-deployment-status-api#keys)
+
+* Publish the webapp deployer record using the `publish-deployer-to-registry` command
+
+```
+laconic-so publish-deployer-to-registry \
+--laconic-config /home/root/webapp-deployer/data/config/laconic.yml \
+--api-url https://webapp-deployer-api.my.domain.com
+--public-key-file webapp-deployer-api.my.domain.com.pgp.pub \
+--lrn lrn://laconic/deployers/webapp-deployer-api.my.domain.com  \
+--min-required-payment 0
+  ```
+
+Replace `my.domain.com` with the domain you have setup
+
+7. Modify the contents of `webapp-deployer/config.env`:
 
 ```
 DEPLOYMENT_DNS_SUFFIX="pwa.laconic.com"
@@ -577,34 +610,41 @@ SYSTEM_PRUNE=false
 WEBAPP_IMAGE_PRUNE=true
 CHECK_INTERVAL=5
 FQDN_POLICY="allow"
+
+# lrn of the webapp deployer
+LRN="lrn://laconic/deployers/webapp-deployer-api.laconic.com"
+
+# Path to the GPG key file inside the webapp-deployer container
+export OPENPGP_PRIVATE_KEY_FILE="webapp-deployer-api.laconic.com.pgp.key"
+
+# Passphrase used when creating the GPG key
+export OPENPGP_PASSPHRASE="SECRET"
 ```
 
-5. Copy `~/.kube/config-default.yaml` from the k8s cluster creation step to `webapp-deployer/data/config/kube.yml`
-6. Create `webapp-deployer/data/config/laconic.yml`, it should look like this:
-```
-services:
-  registry:
-    rpcEndpoint: 'https://lcn-daemon.laconic.com:26657'
-    gqlEndpoint: 'https://lcn-daemon.laconic.com:9473/api'
-    userKey: e64ae9d07b21c62081b3d6d48e78bf44275ffe0575f788ea7b36f71ea559724b
-    bondId: ad9c977f4a641c2cf26ce37dcc9d9eb95325e9f317aee6c9f33388cdd8f2abb8
-    chainId: lorotestnet-1
-    gas: 995000
-    fees: 500000alnt
-```
-Modify the endpoints, user key, and bond ID according to your configuration.
-
-7. Push the image to the container registry.
+8. Push the image to the container registry.
 ```
 laconic-so deployment --dir webapp-deployer push-images
 ```
 
-8. Start the deployer.
+9. Start the deployer.
 ```
 laconic-so deployment --dir webapp-deployer start
 ```
 
 Publishing records to the Laconic Registry will trigger deployments in your backend now.
+
+10. Copy the GPG key file to the webapp-deployer container:
+
+```bash
+# Get the webapp-deployer pod id
+kubectl get pods --sort-by=.metadata.creationTimestamp -o jsonpath='{.items[-1].metadata.name}'
+# laconic-ac473c31db9ac9fd-deployment-674bf7bf9f-529bs
+
+# Copy GPG key files to the pod
+kubectl cp gpg-keys/webapp-deployer-api.laconic.com.pgp.key laconic-ac473c31db9ac9fd-deployment-674bf7bf9f-529bs:/app
+kubectl cp gpg-keys/webapp-deployer-api.laconic.com.pgp.pub laconic-ac473c31db9ac9fd-deployment-674bf7bf9f-529bs:/app
+```
+* Replace `laconic.com` with your configured domain
 
 ## Deploy frontend
 
@@ -641,7 +681,27 @@ laconic-so deployment --dir webapp-ui start
 2. Review this file: `.github/workflows/publish.yaml`.
 3. Update `scripts/publish-app-record.sh` with relevant endpoints (or set the environment variables).
 4. Update `package.json` fields: `"name": "@my-org-name/app-name` and `"repository": "url_to_your_fork_must_be_public"`
-5. Add the envs referenced in `.github/workflows/publish.yaml`, i.e., for `privKey` and `bondId` as Secrets in GitHub Actions.
+5. Add the following envs referenced in `.github/workflows/publish.yaml` as Secrets in GitHub Actions:
+
+  ```bash
+  # Private key acquired while setting up fixturenet-laconicd-deployment
+  CICD_LACONIC_USER_KEY
+
+  # ID of the bond that you created
+  CICD_LACONIC_BOND_ID
+
+  # RPC endpoint for the laconicd chain, eg: https://lcn-daemon.laconic.com:26657
+  CICD_LACONIC_REST_ENDPOINT
+
+  # GQL endpoint for the laconicd chain, eg: https://lcn-daemon.laconic.com:9473/api
+  CICD_LACONIC_GQL_ENDPOINT
+
+  # The sudomain name where webapp deployment is requested, eg: loro-testnet-app
+  CICD_LACONIC_DNS
+
+  # LRN of the webapp-deployer, eg: lrn://laconic/deployers/webapp-deployer-api.laconic.com
+  CICD_LACONIC_DEPLOYER_LRN
+  ```
 
 Now, anytime a release is created, a new set of records will be published to the Laconic Registry, and eventually picked up by the `deployer`, which will target the k8s cluster that was setup.
 
@@ -656,4 +716,3 @@ We now have:
 - https://webapp-deployer-api.pwa.laconic.com listens for ApplicationDeploymentRequest and runs `laconic-so deploy-webapp-from-registry` behind the scenes
 - https://webapp-deployer-ui.pwa.laconic.com displays status and logs for webapps deployed via the Laconic Registry
 - https://app-name-45wjhbhef.pwa.laconic.com is the webapp deployed above
-
